@@ -6,107 +6,129 @@ chapter: false
 pre: " <b> 2. </b> "
 ---
 
-In this section, you need to summarize the contents of the workshop that you **plan** to conduct.
+# Money Manager – Personal Finance Management System on AWS
+## A Full-Stack Solution for Personal Finance on AWS Cloud
 
-# IoT Weather Platform for Lab Research
-## A Unified AWS Serverless Solution for Real-Time Weather Monitoring
+### 1. Summary
+Money Manager is a personal finance app built for both Web and Mobile. It lets users track income and expenses, set budgets, manage spending jars and savings goals, forecast finances, export reports via Excel/Email, scan invoices using OCR, and chat with an integrated AI assistant called Nova Money.
 
-### 1. Executive Summary
-The IoT Weather Platform is designed for the ITea Lab team in Ho Chi Minh City to enhance weather data collection and analysis. It supports up to 5 weather stations, with potential scalability to 10-15, utilizing Raspberry Pi edge devices with ESP32 sensors to transmit data via MQTT. The platform leverages AWS Serverless services to deliver real-time monitoring, predictive analytics, and cost efficiency, with access restricted to 5 lab members via Amazon Cognito.
+On the technical side, the system follows a multi-tier architecture — Web/Mobile apps on the client side, and AWS services powering the backend infrastructure.
 
 ### 2. Problem Statement
-### What’s the Problem?
-Current weather stations require manual data collection, becoming unmanageable with multiple units. There is no centralized system for real-time data or analytics, and third-party platforms are costly and overly complex.
-
-### The Solution
-The platform uses AWS IoT Core to ingest MQTT data, AWS Lambda and API Gateway for processing, Amazon S3 for storage (including a data lake), and AWS Glue Crawlers and ETL jobs to extract, transform, and load data from the S3 data lake to another S3 bucket for analysis. AWS Amplify with Next.js provides the web interface, and Amazon Cognito ensures secure access. Similar to Thingsboard and CoreIoT, users can register new devices and manage connections, though this platform operates on a smaller scale and is designed for private use. Key features include real-time dashboards, trend analysis, and low operational costs.
-
-### Benefits and Return on Investment
-The solution establishes a foundational resource for lab members to develop a larger IoT platform, serving as a study resource, and provides a data foundation for AI enthusiasts for model training or analysis. It reduces manual reporting for each station via a centralized platform, simplifying management and maintenance, and improves data reliability. Monthly costs are $0.66 USD per the AWS Pricing Calculator, with a 12-month total of $7.92 USD. All IoT equipment costs are covered by the existing weather station setup, eliminating additional development expenses. The break-even period of 6-12 months is achieved through significant time savings from reduced manual work.
+*   **The problem:** Most people manage their finances manually or with basic apps that lack deep analytics, spending forecasts, and AI-powered financial advice.
+*   **Our solution:** Money Manager uses a multi-tier AWS Cloud architecture with High Availability, combined with AI (Google Gemini and OpenRouter GPT-OSS) to deliver a complete finance management experience — from expense tracking, budgeting, and financial forecasting to invoice recognition via OCR and the Nova Money AI assistant.
+*   **Value proposition:** Saves users time on financial management, enables smarter spending decisions through AI forecasting, and provides a solid foundation for Premium features down the road.
 
 ### 3. Solution Architecture
-The platform employs a serverless AWS architecture to manage data from 5 Raspberry Pi-based stations, scalable to 15. Data is ingested via AWS IoT Core, stored in an S3 data lake, and processed by AWS Glue Crawlers and ETL jobs to transform and load it into another S3 bucket for analysis. Lambda and API Gateway handle additional processing, while Amplify with Next.js hosts the dashboard, secured by Cognito. The architecture is detailed below:
+The entire system is deployed on AWS Cloud in the Singapore Region (ap-southeast-1), inside a VPC spanning 2 Availability Zones for High Availability.
 
-![IoT Weather Station Architecture](/images/2-Proposal/edge_architecture.jpeg)
+![Money Manager Platform Architecture](/images/2-Proposal/platform_architecture.jpg?width=50pc&classes=shadow)
 
-![IoT Weather Platform Architecture](/images/2-Proposal/platform_architecture.jpeg)
+#### Tech Stack
+*   **Backend:** Spring Boot (Java 21), layered architecture — Controller -> Service -> Repository
+*   **Frontend Web:** React 19 + Vite
+*   **Mobile:** React Native (Expo)
+*   **AI:** Google Gemini (chat, agent, OCR, forecasting) and OpenRouter GPT-OSS (in-depth report analysis for Premium tier)
 
-### AWS Services Used
-- **AWS IoT Core**: Ingests MQTT data from 5 stations, scalable to 15.
-- **AWS Lambda**: Processes data and triggers Glue jobs (two functions).
-- **Amazon API Gateway**: Facilitates web app communication.
-- **Amazon S3**: Stores raw data in a data lake and processed outputs (two buckets).
-- **AWS Glue**: Crawlers catalog data, and ETL jobs transform and load it.
-- **AWS Amplify**: Hosts the Next.js web interface.
-- **Amazon Cognito**: Secures access for lab users.
+#### AWS Services Used
+*   **Application Load Balancer (ALB):** Sits in the Public Subnet, distributes traffic across EC2 instances, spans 2 AZs.
+*   **Amazon EC2 + Auto Scaling Group:** Runs the Spring Boot backend in Private Subnets, auto-scales based on load.
+*   **EC2 Worker:** Dedicated instance for processing background jobs (consumes from SQS).
+*   **Amazon RDS MySQL:** Primary relational database, deployed multi-AZ.
+*   **Amazon ElastiCache (Redis):** Used for caching, session storage and rate limiting. Deployed HA across 2 AZs.
+*   **Amazon DynamoDB:** Stores Nova Money AI chat history with low latency reads.
+*   **Amazon SQS + DLQ:** Message queue for heavy tasks (Excel report export, PDF invoice rendering, scheduled reports). Dead-Letter Queue handles failed jobs.
+*   **AWS Lambda:** Serverless functions to generate report and invoice files.
+*   **Amazon S3:** Stores report files, PDF invoices and invoice images.
+*   **Amazon SNS:** Sends email alerts to admin when budgets are exceeded or subscriptions are expiring.
+*   **Amazon CloudWatch:** Full monitoring — logs, metrics, alarms across ALB, EC2, RDS, Lambda, SQS.
+*   **NAT Gateway:** Allows EC2 in Private Subnets to reach external services.
+*   **IAM Roles:** Access control between AWS services.
 
-### Component Design
-- **Edge Devices**: Raspberry Pi collects and filters sensor data, sending it to IoT Core.
-- **Data Ingestion**: AWS IoT Core receives MQTT messages from the edge devices.
-- **Data Storage**: Raw data is stored in an S3 data lake; processed data is stored in another S3 bucket.
-- **Data Processing**: AWS Glue Crawlers catalog the data, and ETL jobs transform it for analysis.
-- **Web Interface**: AWS Amplify hosts a Next.js app for real-time dashboards and analytics.
-- **User Management**: Amazon Cognito manages user access, allowing up to 5 active accounts.
+#### Main Processing Flows
+*   **User flow:** User accesses via Web/Mobile -> Cloudflare (DNS, WAF, DDoS protection, Rate Limit, Turnstile bot detection) -> ALB -> EC2 Web-API.
+*   **Business logic flow:** EC2 handles login (JWT + Google OAuth2), income/expense management, budgets, savings jars -> writes to RDS MySQL, caches in ElastiCache Redis.
+*   **AI chat flow:** User chats with Nova Money -> conversation history saved to DynamoDB -> recent messages pulled as context for the AI model.
+*   **Async flow:** EC2 Web-API pushes job to SQS -> EC2 Worker consumes -> calls Lambda to generate files -> stores result in S3.
+*   **Notification flow:** Alert event triggers -> SNS sends email to Admin.
+*   **Outbound flow:** EC2 -> NAT Gateway -> PayOS (QR payment), Brevo SMTP (email OTP, reports), Google Gemini API.
 
 ### 4. Technical Implementation
-**Implementation Phases**
-This project has two parts—setting up weather edge stations and building the weather platform—each following 4 phases:
-- Build Theory and Draw Architecture: Research Raspberry Pi setup with ESP32 sensors and design the AWS serverless architecture (1 month pre-internship)
-- Calculate Price and Check Practicality: Use AWS Pricing Calculator to estimate costs and adjust if needed (Month 1).
-- Fix Architecture for Cost or Solution Fit: Tweak the design (e.g., optimize Lambda with Next.js) to stay cost-effective and usable (Month 2).
-- Develop, Test, and Deploy: Code the Raspberry Pi setup, AWS services with CDK/SDK, and Next.js app, then test and release to production (Months 2-3).
+#### Implementation Phases
+1.  **Research and design:** Requirements analysis, AWS architecture design following Well-Architected Framework, database schema and API endpoint design.
+2.  **Cost estimation:** Using AWS Pricing Calculator to estimate costs for RDS, ElastiCache, EC2, Lambda, S3 and related services.
+3.  **Backend development:** Building the Spring Boot API (Java 21), integrating JWT/OAuth2, connecting RDS MySQL, setting up ElastiCache Redis.
+4.  **Frontend development:** Building the Web UI with React 19 + Vite and Mobile app with React Native Expo.
+5.  **AI integration:** Connecting Google Gemini for chat/agent/OCR/forecasting, OpenRouter GPT-OSS for Premium report analysis.
+6.  **Deployment and testing:** Deploying to AWS (VPC, EC2 ASG, ALB, RDS, ElastiCache), configuring Cloudflare, running end-to-end tests.
 
-**Technical Requirements**
-- Weather Edge Station: Sensors (temperature, humidity, rainfall, wind speed), a microcontroller (ESP32), and a Raspberry Pi as the edge device. Raspberry Pi runs Raspbian, handles Docker for filtering, and sends 1 MB/day per station via MQTT over Wi-Fi.
-- Weather Platform: Practical knowledge of AWS Amplify (hosting Next.js), Lambda (minimal use due to Next.js), AWS Glue (ETL), S3 (two buckets), IoT Core (gateway and rules), and Cognito (5 users). Use AWS CDK/SDK to code interactions (e.g., IoT Core rules to S3). Next.js reduces Lambda workload for the fullstack web app.
+#### Technical Requirements
+*   **Backend:** Java 21, Spring Boot, Spring Security (JWT + OAuth2), Spring Data JPA, Hibernate.
+*   **Frontend:** React 19, Vite, React Native (Expo), responsive design.
+*   **Database:** RDS MySQL (multi-AZ), DynamoDB (chat history), ElastiCache Redis (cache/session).
+*   **Infrastructure:** VPC (2 AZ), ALB, EC2 ASG (Graviton), NAT Gateway, SQS + DLQ, Lambda, S3, SNS, CloudWatch, IAM Roles.
+*   **Security:** Cloudflare (WAF, DDoS protection, Rate Limit, Turnstile), HTTPS, IAM policies, Security Groups.
 
 ### 5. Timeline & Milestones
-**Project Timeline**
-- Pre-Internship (Month 0): 1 month for planning and old station review.
-- Internship (Months 1-3): 3 months.
-    - Month 1: Study AWS and upgrade hardware.
-    - Month 2: Design and adjust architecture.
-    - Month 3: Implement, test, and launch.
-- Post-Launch: Up to 1 year for research.
+*   **Weeks 1–6 (20/04 – 29/05):** Learning core AWS services (IAM, VPC, EC2, RDS, S3, Lambda, API Gateway, CloudFormation, DynamoDB) through CloudJourney labs.
+*   **Weeks 7–8 (01/06 – 12/06):**
+    *   Exploring the codebase, analyzing the architecture, setting up the dev environment.
+    *   First deployment to EC2, configuring RDS, integrating S3/CloudFront.
+    *   Studying Well-Architected Framework, AWS SAM and designing the project architecture.
+*   **Week 9 (15/06 – 19/06):**
+    *   Building core features: Spring Boot backend, React frontend, database connectivity.
+    *   Deploying to EC2 in Private Subnet, setting up ALB and Auto Scaling Group.
+*   **Week 10 (22/06 – 26/06):**
+    *   Configuring IAM, security (JWT, OAuth2, Cloudflare WAF).
+    *   Deploying Spring Boot backend to EC2 ASG, setting up ALB, RDS MySQL, ElastiCache.
+    *   Running unit tests, integration tests, load tests and optimizing performance.
+*   **Week 11 (29/06 – 03/07):**
+    *   Polishing UI/UX for Web (React 19 + Vite) and Mobile (React Native Expo), running E2E tests.
+    *   Setting up CloudWatch monitoring, preparing presentation and demo.
+    *   Code review, writing architecture report, backing up data.
+*   **Week 12 (06/07 – 10/07):**
+    *   Post-deployment support, security hardening, AWS cost optimization.
+    *   Testing recovery/failover (RDS multi-AZ, ElastiCache HA).
+    *   Submitting the report and final presentation.
 
 ### 6. Budget Estimation
-You can find the budget estimation on the [AWS Pricing Calculator](https://calculator.aws/#/estimate?id=621f38b12a1ef026842ba2ddfe46ff936ed4ab01).  
-Or you can download the [Budget Estimation File](../attachments/budget_estimation.pdf).
+**Monthly infrastructure costs (estimated):**
 
-### Infrastructure Costs
-- AWS Services:
-    - AWS Lambda: $0.00/month (1,000 requests, 512 MB storage).
-    - S3 Standard: $0.15/month (6 GB, 2,100 requests, 1 GB scanned).
-    - Data Transfer: $0.02/month (1 GB inbound, 1 GB outbound).
-    - AWS Amplify: $0.35/month (256 MB, 500 ms requests).
-    - Amazon API Gateway: $0.01/month (2,000 requests).
-    - AWS Glue ETL Jobs: $0.02/month (2 DPUs).
-    - AWS Glue Crawlers: $0.07/month (1 crawler).
-    - MQTT (IoT Core): $0.08/month (5 devices, 45,000 messages).
-
-Total: $0.7/month, $8.40/12 months
-
-- Hardware: $265 one-time (Raspberry Pi 5 and sensors).
+| AWS Service | Configuration / Usage Level | Estimated Monthly Cost |
+| :--- | :--- | :--- |
+| **Amazon EC2 (ASG – Graviton)** | t4g.small (2 instances min) | ~$15.00 |
+| **Application Load Balancer** | 1 ALB for traffic distribution | ~$16.20 |
+| **Amazon RDS MySQL** | db.t4g.medium (multi-AZ) | ~$29.00 |
+| **Amazon ElastiCache (Redis)** | cache.t4g.micro (2 node HA) | ~$12.00 |
+| **Amazon DynamoDB** | On-demand (chat history) | ~$1.00 |
+| **Amazon S3** | Reports, invoices, images | ~$0.50 |
+| **AWS Lambda** | Free tier | ~$0.00 |
+| **Amazon SQS** | Free tier | ~$0.00 |
+| **Amazon SNS** | Free tier | ~$0.00 |
+| **NAT Gateway** | Outbound traffic | ~$32.00 |
+| **Amazon CloudWatch** | Logs, metrics, alarms | ~$3.00 |
+| **Cloudflare** | Free plan | $0.00 |
+| **Total** | | **~$108.70 / month (~$1,304.40 / year)** |
 
 ### 7. Risk Assessment
-#### Risk Matrix
-- Network Outages: Medium impact, medium probability.
-- Sensor Failures: High impact, low probability.
-- Cost Overruns: Medium impact, low probability.
+#### Key Risks
+*   **Database connection issues:** High impact but low probability, since RDS multi-AZ ensures availability.
+*   **System overload:** High impact, medium probability. Auto Scaling Group handles scaling automatically.
+*   **Data loss:** High impact but low probability thanks to RDS multi-AZ with automated backups.
+*   **DDoS/Bot attacks:** Medium impact and medium probability, handled by Cloudflare WAF, Rate Limit and Turnstile.
+*   **AWS cost overrun:** Medium impact and medium probability, mitigated with CloudWatch billing alarms for early warning.
 
-#### Mitigation Strategies
-- Network: Local storage on Raspberry Pi with Docker.
-- Sensors: Regular checks and spares.
-- Cost: AWS budget alerts and optimization.
+#### Mitigation
+*   **Database:** RDS multi-AZ failover, ElastiCache HA.
+*   **Performance:** Auto Scaling Group, ElastiCache Redis for caching, SQS to offload heavy tasks from the main flow.
+*   **Security:** Cloudflare WAF + Turnstile, JWT + OAuth2, IAM least privilege, Security Groups.
+*   **Cost:** CloudWatch billing alarm, Reserved Instances, Lambda optimization.
 
-#### Contingency Plans
-- Revert to manual methods if AWS fails.
-- Use CloudFormation for cost-related rollbacks.
+#### Contingency plans
+*   Auto failover between 2 AZs for both RDS MySQL and ElastiCache Redis.
+*   Dead-Letter Queue on SQS for retrying or debugging failed jobs.
+*   CloudWatch Alarms trigger automatically when performance degrades or error rates spike.
 
 ### 8. Expected Outcomes
-#### Technical Improvements: 
-Real-time data and analytics replace manual processes.  
-Scalable to 10-15 stations.
-#### Long-term Value
-1-year data foundation for AI research.  
-Reusable for future projects.
+*   **Technical outcomes:** A stable, production-ready personal finance system running on AWS with High Availability, supporting both Web and Mobile. AI integration (Google Gemini, OpenRouter) for financial forecasting, invoice OCR and the Nova Money assistant. Efficient async processing with SQS + Lambda for report generation and invoice rendering.
+*   **Long-term value:** The platform scales flexibly thanks to Auto Scaling Group and multi-AZ architecture. There’s room to grow with Premium features (deep report analysis via OpenRouter GPT-OSS), additional payment gateways, and international expansion.

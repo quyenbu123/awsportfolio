@@ -6,100 +6,129 @@ chapter: false
 pre: " <b> 2. </b> "
 ---
 
-Tại phần này, bạn cần tóm tắt các nội dung trong workshop mà bạn **dự tính** sẽ làm.
+# Money Manager – Hệ thống Quản lý Tài chính Cá nhân trên nền tảng AWS
+## Giải pháp toàn diện cho quản lý tài chính cá nhân với AWS Cloud
 
-# IoT Weather Platform for Lab Research  
-## Giải pháp AWS Serverless hợp nhất cho giám sát thời tiết thời gian thực  
+### 1. Tóm tắt
+Money Manager là một ứng dụng quản lý tài chính cá nhân chạy trên cả Web lẫn Mobile. Ứng dụng cho phép người dùng theo dõi thu chi, lập ngân sách, quản lý các hũ chi tiêu và mục tiêu tiết kiệm, dự báo tài chính, xuất báo cáo qua Excel/Email, scan hóa đơn bằng OCR, và đặc biệt có trợ lý AI tên Nova Money hỗ trợ tư vấn tài chính.
 
-### 1. Tóm tắt điều hành  
-IoT Weather Platform được thiết kế dành cho nhóm *ITea Lab* tại TP. Hồ Chí Minh nhằm nâng cao khả năng thu thập và phân tích dữ liệu thời tiết. Nền tảng hỗ trợ tối đa 5 trạm thời tiết, có khả năng mở rộng lên 10–15 trạm, sử dụng thiết bị biên Raspberry Pi kết hợp cảm biến ESP32 để truyền dữ liệu qua MQTT. Nền tảng tận dụng các dịch vụ AWS Serverless để cung cấp giám sát thời gian thực, phân tích dự đoán và tiết kiệm chi phí, với quyền truy cập giới hạn cho 5 thành viên phòng lab thông qua Amazon Cognito.  
+Về mặt kỹ thuật, hệ thống được xây dựng theo kiến trúc nhiều tầng — phía người dùng là ứng dụng Web/Mobile, phía server là các dịch vụ của AWS.
 
-### 2. Tuyên bố vấn đề  
-*Vấn đề hiện tại*  
-Các trạm thời tiết hiện tại yêu cầu thu thập dữ liệu thủ công, khó quản lý khi có nhiều trạm. Không có hệ thống tập trung cho dữ liệu hoặc phân tích thời gian thực, và các nền tảng bên thứ ba thường tốn kém và quá phức tạp.  
+### 2. Vấn đề cần giải quyết
+*   **Thực trạng:** Hiện tại, việc quản lý tài chính cá nhân thường được làm thủ công hoặc dùng các app đơn giản, thiếu khả năng phân tích sâu, dự báo xu hướng chi tiêu, và không có AI hỗ trợ đưa ra quyết định tài chính.
+*   **Giải pháp:** Money Manager dùng kiến trúc AWS Cloud với High Availability, kết hợp AI (Google Gemini và OpenRouter GPT-OSS) để mang đến trải nghiệm quản lý tài chính đầy đủ — từ tracking thu chi, budgeting, dự báo tài chính, cho đến nhận diện hóa đơn qua OCR và chat với trợ lý AI Nova Money.
+*   **Lợi ích:** Giúp người dùng tiết kiệm thời gian quản lý tài chính, chi tiêu thông minh hơn nhờ dự báo từ AI, đồng thời tạo nền tảng để phát triển thêm các tính năng Premium sau này.
 
-*Giải pháp*  
-Nền tảng sử dụng AWS IoT Core để tiếp nhận dữ liệu MQTT, AWS Lambda và API Gateway để xử lý, Amazon S3 để lưu trữ (bao gồm data lake), và AWS Glue Crawlers cùng các tác vụ ETL để trích xuất, chuyển đổi, tải dữ liệu từ S3 data lake sang một S3 bucket khác để phân tích. AWS Amplify với Next.js cung cấp giao diện web, và Amazon Cognito đảm bảo quyền truy cập an toàn. Tương tự như Thingsboard và CoreIoT, người dùng có thể đăng ký thiết bị mới và quản lý kết nối, nhưng nền tảng này hoạt động ở quy mô nhỏ hơn và phục vụ mục đích sử dụng nội bộ. Các tính năng chính bao gồm bảng điều khiển thời gian thực, phân tích xu hướng và chi phí vận hành thấp.  
+### 3. Kiến trúc hệ thống
+Toàn bộ hệ thống deploy trên AWS Cloud tại Region Singapore (ap-southeast-1), nằm trong một VPC trải trên 2 Availability Zone để đảm bảo High Availability.
 
-*Lợi ích và hoàn vốn đầu tư (ROI)*  
-Giải pháp tạo nền tảng cơ bản để các thành viên phòng lab phát triển một nền tảng IoT lớn hơn, đồng thời cung cấp nguồn dữ liệu cho những người nghiên cứu AI phục vụ huấn luyện mô hình hoặc phân tích. Nền tảng giảm bớt báo cáo thủ công cho từng trạm thông qua hệ thống tập trung, đơn giản hóa quản lý và bảo trì, đồng thời cải thiện độ tin cậy dữ liệu. Chi phí hàng tháng ước tính 0,66 USD (theo AWS Pricing Calculator), tổng cộng 7,92 USD cho 12 tháng. Tất cả thiết bị IoT đã được trang bị từ hệ thống trạm thời tiết hiện tại, không phát sinh chi phí phát triển thêm. Thời gian hoàn vốn 6–12 tháng nhờ tiết kiệm đáng kể thời gian thao tác thủ công.  
+![Money Manager Platform Architecture](/images/2-Proposal/platform_architecture.jpg?width=50pc&classes=shadow)
 
-### 3. Kiến trúc giải pháp  
-Nền tảng áp dụng kiến trúc AWS Serverless để quản lý dữ liệu từ 5 trạm dựa trên Raspberry Pi, có thể mở rộng lên 15 trạm. Dữ liệu được tiếp nhận qua AWS IoT Core, lưu trữ trong S3 data lake và xử lý bởi AWS Glue Crawlers và ETL jobs để chuyển đổi và tải vào một S3 bucket khác cho mục đích phân tích. Lambda và API Gateway xử lý bổ sung, trong khi Amplify với Next.js cung cấp bảng điều khiển được bảo mật bởi Cognito.  
+#### Công nghệ sử dụng
+*   **Backend:** Spring Boot (Java 21), kiến trúc phân lớp Controller -> Service -> Repository
+*   **Frontend Web:** React 19 + Vite
+*   **Mobile:** React Native (Expo)
+*   **AI:** Google Gemini (chat, agent, OCR, dự báo) và OpenRouter GPT-OSS (phân tích báo cáo cho gói Premium)
 
-![IoT Weather Station Architecture](/images/2-Proposal/edge_architecture.jpeg)
+#### Các dịch vụ AWS chính
+*   **Application Load Balancer (ALB):** Đặt trong Public Subnet, phân phối request đến các EC2 phía sau, span 2 AZ.
+*   **Amazon EC2 + Auto Scaling Group:** Chạy backend Spring Boot trong Private Subnet, tự động scale theo tải.
+*   **EC2 Worker:** Instance riêng để xử lý background job (consume từ SQS).
+*   **Amazon RDS MySQL:** Database chính, deploy multi-AZ.
+*   **Amazon ElastiCache (Redis):** Dùng cho cache, session và rate limit. Deploy HA trên 2 AZ.
+*   **Amazon DynamoDB:** Lưu lịch sử chat của Nova Money AI, truy xuất nhanh nhờ low latency.
+*   **Amazon SQS + DLQ:** Message queue cho các task nặng (export báo cáo Excel, render hóa đơn PDF, gửi báo cáo định kỳ). Có Dead-Letter Queue xử lý job lỗi.
+*   **AWS Lambda:** Chạy serverless để tạo file báo cáo và hóa đơn.
+*   **Amazon S3:** Lưu file báo cáo, hóa đơn PDF và ảnh invoice.
+*   **Amazon SNS:** Gửi email alert cho admin khi ngân sách vượt mức hoặc subscription sắp hết hạn.
+*   **Amazon CloudWatch:** Monitoring toàn bộ hệ thống — logs, metrics, alarms cho ALB, EC2, RDS, Lambda, SQS.
+*   **NAT Gateway:** Cho phép EC2 trong Private Subnet gọi ra các service bên ngoài.
+*   **IAM Roles:** Phân quyền truy cập giữa các dịch vụ AWS.
 
-![IoT Weather Platform Architecture](/images/2-Proposal/platform_architecture.jpeg)
+#### Các luồng xử lý chính
+*   **Luồng người dùng:** User truy cập qua Web/Mobile -> đi qua Cloudflare (DNS, WAF, chống DDoS, Rate Limit, Turnstile chống bot) -> vào ALB -> đến EC2 Web-API.
+*   **Luồng nghiệp vụ:** EC2 xử lý login (JWT + Google OAuth2), quản lý thu chi, ngân sách, hũ tiết kiệm -> ghi vào RDS MySQL, cache ở ElastiCache Redis.
+*   **Luồng AI chat:** User chat với Nova Money -> lưu lịch sử vào DynamoDB -> lấy context các tin nhắn gần nhất gửi kèm cho model AI.
+*   **Luồng async:** EC2 Web-API đẩy job vào SQS -> EC2 Worker consume -> gọi Lambda tạo file -> lưu kết quả vào S3.
+*   **Luồng thông báo:** Khi có event cảnh báo -> SNS gửi email cho Admin.
+*   **Luồng outbound:** EC2 -> NAT Gateway -> PayOS (thanh toán QR), Brevo SMTP (gửi email OTP, báo cáo), Google Gemini API.
 
-*Dịch vụ AWS sử dụng*  
-- *AWS IoT Core*: Tiếp nhận dữ liệu MQTT từ 5 trạm, mở rộng lên 15.  
-- *AWS Lambda*: Xử lý dữ liệu và kích hoạt Glue jobs (2 hàm).  
-- *Amazon API Gateway*: Giao tiếp với ứng dụng web.  
-- *Amazon S3*: Lưu trữ dữ liệu thô (data lake) và dữ liệu đã xử lý (2 bucket).  
-- *AWS Glue*: Crawlers lập chỉ mục dữ liệu, ETL jobs chuyển đổi và tải dữ liệu.  
-- *AWS Amplify*: Lưu trữ giao diện web Next.js.  
-- *Amazon Cognito*: Quản lý quyền truy cập cho người dùng phòng lab.  
+### 4. Triển khai kỹ thuật
+#### Các giai đoạn thực hiện
+1.  **Nghiên cứu và thiết kế:** Phân tích yêu cầu, vẽ kiến trúc AWS theo Well-Architected Framework, thiết kế database schema và API endpoints.
+2.  **Tính chi phí:** Dùng AWS Pricing Calculator ước tính cost cho RDS, ElastiCache, EC2, Lambda, S3 và các service liên quan.
+3.  **Phát triển backend:** Code Spring Boot API (Java 21), tích hợp JWT/OAuth2, kết nối RDS MySQL, setup ElastiCache Redis.
+4.  **Phát triển frontend:** Xây giao diện Web bằng React 19 + Vite và app Mobile bằng React Native Expo.
+5.  **Tích hợp AI:** Connect Google Gemini cho chat/agent/OCR/dự báo, OpenRouter GPT-OSS cho phân tích report Premium.
+6.  **Deploy và testing:** Triển khai lên AWS (VPC, EC2 ASG, ALB, RDS, ElastiCache), cấu hình Cloudflare, chạy test end-to-end.
 
-*Thiết kế thành phần*  
-- *Thiết bị biên*: Raspberry Pi thu thập và lọc dữ liệu cảm biến, gửi tới IoT Core.  
-- *Tiếp nhận dữ liệu*: AWS IoT Core nhận tin nhắn MQTT từ thiết bị biên.  
-- *Lưu trữ dữ liệu*: Dữ liệu thô lưu trong S3 data lake; dữ liệu đã xử lý lưu ở một S3 bucket khác.  
-- *Xử lý dữ liệu*: AWS Glue Crawlers lập chỉ mục dữ liệu; ETL jobs chuyển đổi để phân tích.  
-- *Giao diện web*: AWS Amplify lưu trữ ứng dụng Next.js cho bảng điều khiển và phân tích thời gian thực.  
-- *Quản lý người dùng*: Amazon Cognito giới hạn 5 tài khoản hoạt động.  
+#### Yêu cầu kỹ thuật
+*   **Backend:** Java 21, Spring Boot, Spring Security (JWT + OAuth2), Spring Data JPA, Hibernate.
+*   **Frontend:** React 19, Vite, React Native (Expo), responsive design.
+*   **Database:** RDS MySQL (multi-AZ), DynamoDB (chat history), ElastiCache Redis (cache/session).
+*   **Infrastructure:** VPC (2 AZ), ALB, EC2 ASG (Graviton), NAT Gateway, SQS + DLQ, Lambda, S3, SNS, CloudWatch, IAM Roles.
+*   **Security:** Cloudflare (WAF, DDoS protection, Rate Limit, Turnstile), HTTPS, IAM policies, Security Groups.
 
-### 4. Triển khai kỹ thuật  
-*Các giai đoạn triển khai*  
-Dự án gồm 2 phần — thiết lập trạm thời tiết biên và xây dựng nền tảng thời tiết — mỗi phần trải qua 4 giai đoạn:  
-1. *Nghiên cứu và vẽ kiến trúc*: Nghiên cứu Raspberry Pi với cảm biến ESP32 và thiết kế kiến trúc AWS Serverless (1 tháng trước kỳ thực tập).  
-2. *Tính toán chi phí và kiểm tra tính khả thi*: Sử dụng AWS Pricing Calculator để ước tính và điều chỉnh (Tháng 1).  
-3. *Điều chỉnh kiến trúc để tối ưu chi phí/giải pháp*: Tinh chỉnh (ví dụ tối ưu Lambda với Next.js) để đảm bảo hiệu quả (Tháng 2).  
-4. *Phát triển, kiểm thử, triển khai*: Lập trình Raspberry Pi, AWS services với CDK/SDK và ứng dụng Next.js, sau đó kiểm thử và đưa vào vận hành (Tháng 2–3).  
+### 5. Lộ trình triển khai
+*   **Tuần 1–6 (20/04 – 29/05):** Học các dịch vụ AWS nền tảng (IAM, VPC, EC2, RDS, S3, Lambda, API Gateway, CloudFormation, DynamoDB) qua lab trên CloudJourney.
+*   **Tuần 7–8 (01/06 – 12/06):**
+    *   Tìm hiểu source code, phân tích kiến trúc, setup môi trường dev.
+    *   Deploy thử lên EC2, cấu hình RDS, tích hợp S3/CloudFront.
+    *   Nghiên cứu Well-Architected Framework, AWS SAM và lên kiến trúc cho dự án.
+*   **Tuần 9 (15/06 – 19/06):**
+    *   Phát triển các chức năng chính: backend Spring Boot, frontend React, kết nối database.
+    *   Deploy lên EC2 trong Private Subnet, cấu hình ALB và Auto Scaling Group.
+*   **Tuần 10 (22/06 – 26/06):**
+    *   Setup IAM, bảo mật (JWT, OAuth2, Cloudflare WAF).
+    *   Deploy backend Spring Boot lên EC2 ASG, cấu hình ALB, RDS MySQL, ElastiCache.
+    *   Chạy unit test, integration test, load test và tối ưu performance.
+*   **Tuần 11 (29/06 – 03/07):**
+    *   Tối ưu UI/UX cho Web (React 19 + Vite) và Mobile (React Native Expo), chạy E2E test.
+    *   Cấu hình CloudWatch monitoring, chuẩn bị slide và demo.
+    *   Code review, viết báo cáo kiến trúc, backup dữ liệu.
+*   **Tuần 12 (06/07 – 10/07):**
+    *   Hỗ trợ sau deploy, hardening bảo mật, tối ưu chi phí AWS.
+    *   Test recovery/failover (RDS multi-AZ, ElastiCache HA).
+    *   Nộp báo cáo và thuyết trình.
 
-*Yêu cầu kỹ thuật*  
-- *Trạm thời tiết biên*: Cảm biến (nhiệt độ, độ ẩm, lượng mưa, tốc độ gió), vi điều khiển ESP32, Raspberry Pi làm thiết bị biên. Raspberry Pi chạy Raspbian, sử dụng Docker để lọc dữ liệu và gửi 1 MB/ngày/trạm qua MQTT qua Wi-Fi.  
-- *Nền tảng thời tiết*: Kiến thức thực tế về AWS Amplify (lưu trữ Next.js), Lambda (giảm thiểu do Next.js xử lý), AWS Glue (ETL), S3 (2 bucket), IoT Core (gateway và rules), và Cognito (5 người dùng). Sử dụng AWS CDK/SDK để lập trình (ví dụ IoT Core rules tới S3). Next.js giúp giảm tải Lambda cho ứng dụng web fullstack.  
+### 6. Ước tính chi phí
+**Chi phí hạ tầng hàng tháng (ước tính):**
 
-### 5. Lộ trình & Mốc triển khai  
-- *Trước thực tập (Tháng 0)*: 1 tháng lên kế hoạch và đánh giá trạm cũ.  
-- *Thực tập (Tháng 1–3)*:  
-    - Tháng 1: Học AWS và nâng cấp phần cứng.  
-    - Tháng 2: Thiết kế và điều chỉnh kiến trúc.  
-    - Tháng 3: Triển khai, kiểm thử, đưa vào sử dụng.  
-- *Sau triển khai*: Nghiên cứu thêm trong vòng 1 năm.  
+| Dịch vụ AWS | Cấu hình / Mức sử dụng | Chi phí ước tính |
+| :--- | :--- | :--- |
+| **Amazon EC2 (ASG – Graviton)** | t4g.small (tối thiểu 2 instance) | ~15,00 USD/tháng |
+| **Application Load Balancer** | 1 ALB phân phối tải | ~16,20 USD/tháng |
+| **Amazon RDS MySQL** | db.t4g.medium (multi-AZ) | ~29,00 USD/tháng |
+| **Amazon ElastiCache (Redis)** | cache.t4g.micro (2 node HA) | ~12,00 USD/tháng |
+| **Amazon DynamoDB** | On-demand (lưu lịch sử chat) | ~1,00 USD/tháng |
+| **Amazon S3** | Lưu báo cáo, hóa đơn, ảnh | ~0,50 USD/tháng |
+| **AWS Lambda** | Free tier | ~0,00 USD/tháng |
+| **Amazon SQS** | Free tier | ~0,00 USD/tháng |
+| **Amazon SNS** | Free tier | ~0,00 USD/tháng |
+| **NAT Gateway** | Outbound traffic | ~32,00 USD/tháng |
+| **Amazon CloudWatch** | Logs, metrics, alarms | ~3,00 USD/tháng |
+| **Cloudflare** | Free plan | 0,00 USD/tháng |
+| **Tổng cộng** | | **~108,70 USD/tháng (~1.304,40 USD/năm)** |
 
-### 6. Ước tính ngân sách  
-Có thể xem chi phí trên [AWS Pricing Calculator](https://calculator.aws/#/estimate?id=621f38b12a1ef026842ba2ddfe46ff936ed4ab01)  
-Hoặc tải [tệp ước tính ngân sách](../attachments/budget_estimation.pdf).  
+### 7. Đánh giá rủi ro
+#### Các rủi ro chính
+*   **Lỗi kết nối database:** ảnh hưởng cao nhưng xác suất thấp, vì đã có RDS multi-AZ đảm bảo tính sẵn sàng.
+*   **Quá tải hệ thống:** ảnh hưởng cao, xác suất trung bình. Auto Scaling Group sẽ tự co giãn theo tải.
+*   **Mất dữ liệu:** ảnh hưởng cao nhưng xác suất thấp nhờ RDS multi-AZ kết hợp automated backup.
+*   **Tấn công DDoS/Bot:** ảnh hưởng và xác suất đều ở mức trung bình, được xử lý bằng Cloudflare WAF, Rate Limit và Turnstile.
+*   **Vượt budget AWS:** ảnh hưởng và xác suất trung bình, dùng CloudWatch billing alarm để cảnh báo sớm.
 
-*Chi phí hạ tầng*  
-- AWS Lambda: 0,00 USD/tháng (1.000 request, 512 MB lưu trữ).  
-- S3 Standard: 0,15 USD/tháng (6 GB, 2.100 request, 1 GB quét).  
-- Truyền dữ liệu: 0,02 USD/tháng (1 GB vào, 1 GB ra).  
-- AWS Amplify: 0,35 USD/tháng (256 MB, request 500 ms).  
-- Amazon API Gateway: 0,01 USD/tháng (2.000 request).  
-- AWS Glue ETL Jobs: 0,02 USD/tháng (2 DPU).  
-- AWS Glue Crawlers: 0,07 USD/tháng (1 crawler).  
-- MQTT (IoT Core): 0,08 USD/tháng (5 thiết bị, 45.000 tin nhắn).  
+#### Cách xử lý
+*   **Database:** RDS multi-AZ failover, ElastiCache HA.
+*   **Performance:** Auto Scaling Group, ElastiCache Redis làm cache, SQS tách task nặng ra khỏi main flow.
+*   **Bảo mật:** Cloudflare WAF + Turnstile, JWT + OAuth2, IAM least privilege, Security Groups.
+*   **Chi phí:** CloudWatch billing alarm, Reserved Instances, tối ưu Lambda.
 
-*Tổng*: 0,7 USD/tháng, 8,40 USD/12 tháng  
-- *Phần cứng*: 265 USD một lần (Raspberry Pi 5 và cảm biến).  
+#### Phương án dự phòng
+*   Auto failover giữa 2 AZ cho RDS MySQL và ElastiCache Redis.
+*   Dead-Letter Queue cho SQS để retry hoặc debug các job bị lỗi.
+*   CloudWatch Alarm tự động báo khi có vấn đề về performance hoặc error rate tăng.
 
-### 7. Đánh giá rủi ro  
-*Ma trận rủi ro*  
-- Mất mạng: Ảnh hưởng trung bình, xác suất trung bình.  
-- Hỏng cảm biến: Ảnh hưởng cao, xác suất thấp.  
-- Vượt ngân sách: Ảnh hưởng trung bình, xác suất thấp.  
-
-*Chiến lược giảm thiểu*  
-- Mạng: Lưu trữ cục bộ trên Raspberry Pi với Docker.  
-- Cảm biến: Kiểm tra định kỳ, dự phòng linh kiện.  
-- Chi phí: Cảnh báo ngân sách AWS, tối ưu dịch vụ.  
-
-*Kế hoạch dự phòng*  
-- Quay lại thu thập thủ công nếu AWS gặp sự cố.  
-- Sử dụng CloudFormation để khôi phục cấu hình liên quan đến chi phí.  
-
-### 8. Kết quả kỳ vọng  
-*Cải tiến kỹ thuật*: Dữ liệu và phân tích thời gian thực thay thế quy trình thủ công. Có thể mở rộng tới 10–15 trạm.  
-*Giá trị dài hạn*: Nền tảng dữ liệu 1 năm cho nghiên cứu AI, có thể tái sử dụng cho các dự án tương lai.
+### 8. Kết quả mong đợi
+*   **Về kỹ thuật:** Xây dựng được hệ thống quản lý tài chính cá nhân chạy ổn định trên AWS với High Availability, hỗ trợ cả Web và Mobile. Tích hợp AI (Google Gemini, OpenRouter) cho dự báo tài chính, OCR hóa đơn và trợ lý Nova Money. Xử lý async hiệu quả với SQS + Lambda cho việc export báo cáo và render hóa đơn.
+*   **Về lâu dài:** Hệ thống có thể scale linh hoạt nhờ Auto Scaling Group và kiến trúc multi-AZ. Có tiềm năng phát triển thêm tính năng Premium (phân tích chuyên sâu qua OpenRouter GPT-OSS), tích hợp thêm payment gateway và mở rộng ra thị trường quốc tế.
