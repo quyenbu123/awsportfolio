@@ -6,33 +6,32 @@ chapter: false
 pre: " <b> 1.2. </b> "
 ---
 
-> 
- **Lưu ý:**  30/04 (Ngày Giải phóng) và 01/05 (Ngày Quốc tế Lao động) là ngày nghỉ lễ — tuần này chỉ có 3 ngày làm việc.
+> **Lưu ý:** 30/04 (Ngày Giải phóng) và 01/05 (Ngày Quốc tế Lao động) là ngày nghỉ lễ — tuần này chỉ có 3 ngày làm việc.
 
 ### Chủ đề tuần
 
-Ôn tập IAM + IAM Roles cho EC2 + thao tác nền tảng với Amazon EC2
+Đọc hiểu tài liệu kỹ thuật AWS, làm quen AWS Console và quản trị tài nguyên EC2.
 
 ### Mục tiêu tuần
 
-* Ôn tập và củng cố kiến thức IAM & VPC từ Tuần 1.
-* Tìm hiểu sâu về IAM Roles cho EC2 và các thao tác cơ bản trên Amazon EC2.
+* Nghiên cứu cơ chế hoạt động và trường hợp sử dụng thực tế của các dịch vụ đám mây AWS.
+* Sử dụng thành thạo AWS Console và quản lý tài nguyên tính toán (EC2).
+* Phân tích cách truy cập an toàn từ EC2 đến các dịch vụ lưu trữ khác mà không dùng static key.
 
 ### Lịch công việc
 
 | Ngày | Thứ | Nội dung công việc | Lab / Dự án |
 |---|---|---|---|
-| 27/04/2026 | Thứ 2 | Ôn lại IAM gồm users, groups, roles và policies.Ôn lại các thành phần VPC như subnet, route table, Internet Gateway và security groups.Thiết lập Billing Alarm $5 và xem lại chiến lược sử dụng credit AWS.Thực hành ôn tập toàn bộ các lab của Tuần 1. | [Lab 000001 - Tạo tài khoản AWS đầu tiênLab 000002 - Quản lý truy cập với AWS IAMLab 000003 - Kiến thức mạng cơ bản với Amazon VPC](https://000001.awsstudygroup.com)|
-| 28/04/2026 | Thứ 3 | Tìm hiểu IAM Roles cho EC2 và mô hình Instance Profile.Truy cập S3 và DynamoDB từ EC2 mà không cần static access keys.Xem lại IAM cost governance, bao gồm giới hạn region và instance type.Thực hành [Lab 000048](https://000048.awsstudygroup.com). | [Lab 000048 - IAM Roles cho EC2 (Instance Profile)](https://000048.awsstudygroup.com)|
-| 29/04/2026 | Thứ 4 | Tạo VPC và security groups cho cả Linux và Windows EC2.Khởi tạo Amazon Linux 2023 và Windows Server 2025.Kết nối bằng SSH và RDP, đồng thời ôn lại khái niệm Key Pair, AMI và instance type.Thực hành [Lab 000004](https://000004.awsstudygroup.com). | [Lab 000004 - Giới thiệu Amazon EC2](https://000004.awsstudygroup.com)|
+| 27/04/2026 | Thứ 2 | Ôn tập lại cấu hình VPC và phân quyền IAM từ tuần 1. Thiết lập Billing Alarm 5 USD để cảnh báo chi phí phát sinh. | Hệ thống AWS |
+| 28/04/2026 | Thứ 3 | Nghiên cứu IAM Roles cho EC2 và mô hình Instance Profile để phân quyền bảo mật không dùng static access key. Thực hành Lab 000048. | [Lab 000048 - IAM Roles cho EC2 (Instance Profile)](https://000048.awsstudygroup.com)|
+| 29/04/2026 | Thứ 4 | Tìm hiểu dịch vụ tính toán Amazon EC2. Khởi tạo instance Amazon Linux & Windows, cấu hình key pairs, AMI và security group. Thực hành Lab 000004. | [Lab 000004 - Giới thiệu Amazon EC2](https://000004.awsstudygroup.com)|
 
 ### Kết quả kỳ vọng
 
-* Củng cố hiểu biết về IAM và VPC thông qua quá trình ôn tập có thực hành.
-* Thiết lập các kiểm soát chi phí cơ bản như Billing Alarm và theo dõi credit.
-* Hiểu cách IAM Roles cho EC2 thay thế việc dùng static credentials khi truy cập dịch vụ AWS.
-* Khởi tạo và truy cập được cả Linux EC2 lẫn Windows EC2 với cấu hình mạng và bảo mật phù hợp.
-* Nắm mối quan hệ giữa AMI, instance type, key pair và security groups trong quy trình triển khai EC2.
+* Hiểu cách áp dụng Instance Profile để EC2 giao tiếp bảo mật với S3 hay DynamoDB.
+* Sử dụng thành thạo các tính năng quản lý tài nguyên trên trang AWS Console.
+* Khởi tạo, cấu hình và kết nối thành công vào máy chủ ảo Linux (qua SSH/Session Manager) và Windows (RDP).
+* Phân biệt các khái niệm AMI, Instance Types, Security Groups và Key Pairs của EC2.
 
 ### Tham chiếu tuần 2
 
@@ -40,4 +39,4 @@ pre: " <b> 1.2. </b> "
 * [Lab 000002 - Quản lý truy cập với AWS IAM](https://000002.awsstudygroup.com)
 * [Lab 000003 - Kiến thức mạng cơ bản với Amazon VPC](https://000003.awsstudygroup.com)
 * [Lab 000048 - IAM Roles cho EC2 (Instance Profile)](https://000048.awsstudygroup.com)
-* [Lab 000004 - Kiến thức tính toán cơ bản với Amazon EC2](https://000004.awsstudygroup.com)
+* [Lab 000004 - Giới thiệu Amazon EC2](https://000004.awsstudygroup.com)

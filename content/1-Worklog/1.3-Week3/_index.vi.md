@@ -8,34 +8,35 @@ pre: " <b> 1.3. </b> "
 
 ### Chủ đề tuần
 
-Thao tác EC2 nâng cao + RDS + S3 static hosting + giám sát CloudWatch
+Họp nhóm chốt đề tài dự án Money Manager, phân chia công việc và nghiên cứu các dịch vụ lưu trữ dữ liệu (RDS, S3).
 
 ### Mục tiêu tuần
 
-* Hoàn thành các thao tác nâng cao trên EC2: thay đổi kích thước, snapshots, AMI, triển khai ứng dụng.
-* Tìm hiểu Amazon RDS, Amazon S3 static hosting, và giám sát CloudWatch.
+* Thống nhất ý tưởng dự án quản lý tài chính **Money Manager**, phân chia module và vai trò của các thành viên.
+* Tìm hiểu cách tích hợp các dịch vụ RDS MySQL, ElastiCache Redis, S3 và EC2 vào dự án.
+* Tham gia sự kiện công nghệ và check-in làm việc thực tế tại văn phòng AWS.
 
 ### Lịch công việc
 
 | Ngày | Thứ | Nội dung công việc | Lab / Dự án |
 |---|---|---|---|
-| 04/05/2026 | Thứ 2 | Thay đổi instance type của EC2.Tạo và quản lý EBS snapshots.Tạo custom AMI và khởi tạo instances từ AMI đó.Khôi phục quyền truy cập vào Linux và Windows instances, sau đó hoàn thành phần nâng cao của [Lab 000004](https://000004.awsstudygroup.com). | [Lab 000004 - Giới thiệu Amazon EC2](https://000004.awsstudygroup.com)|
-| 05/05/2026 | Thứ 3 | Cài đặt LAMP server và Node.js trên Amazon Linux 2023.Triển khai ứng dụng Node.js trên EC2 cho cả Linux và Windows.Ôn lại AWS CLI cơ bản cho EC2, S3 và IAM, đồng thời tạo AWS Budgets alert.Thực hành các lab liên quan đến triển khai và terminate EC2 instances cuối ngày. | [Lab 000004 - Giới thiệu Amazon EC2](https://000004.awsstudygroup.com)|
-| 06/05/2026 | Thứ 4 | Tạo VPC và security group cho Amazon RDS.Khởi tạo RDS MySQL managed instance và triển khai ứng dụng kết nối tới đó.Thực hành backup và restore với RDS snapshots.Thực hành [Lab 000005](https://000005.awsstudygroup.com). | [Lab 000005 - Kiến thức cơ sở dữ liệu với Amazon RDS](https://000005.awsstudygroup.com)|
-| 07/05/2026 | Thứ 5 | Tạo S3 bucket và cấu hình public access để host static website.Upload các file HTML/CSS và cấu hình bucket policy cùng versioning.Kiểm tra pre-signed URLs cho truy cập có kiểm soát.Thực hành [Lab 000057](https://000057.awsstudygroup.com) và dọn dẹp tài nguyên cuối tuần. | [Lab 000057 - Lưu trữ website tĩnh với Amazon S3](https://000057.awsstudygroup.com)|
-| 08/05/2026 | Thứ 6 | Tìm hiểu CloudWatch metrics và dashboards.Thiết lập alarm CPU > 80% kèm SNS email notification.Cấu hình log groups, Log Insights và CloudWatch Agent trên EC2.Thực hành [Lab 000008](https://000008.awsstudygroup.com). | [Lab 000008 - Giám sát với Amazon CloudWatch](https://000008.awsstudygroup.com)|
+| 04/05/2026 | Thứ 2 | Họp nhóm thảo luận dự án cuối khóa Money Manager, phân chia vai trò (mobile client, backend API, cloud infrastructure). | Khởi động dự án |
+| 05/05/2026 | Thứ 3 | Nghiên cứu cách thiết lập lưu trữ tĩnh S3 để lưu trữ file (ảnh hóa đơn, tài liệu). Thực hành Lab 000057. | [Lab 000057 - Hosting static website với Amazon S3](https://000057.awsstudygroup.com)|
+| 06/05/2026 | Thứ 4 | Tìm hiểu cơ sở dữ liệu quan hệ RDS MySQL và dịch vụ Lightsail tối ưu chi phí. Thực hành Lab 000005 và Lab 000045. | [Lab 000005 - Tạo cơ sở dữ liệu trên Amazon RDS](https://000005.awsstudygroup.com)|
+| 07/05/2026 | Thứ 5 | Cấu hình và sử dụng AWS Cloud9 làm IDE đám mây để hỗ trợ lập trình cộng tác nhóm. Thực hành Lab 000049. | [Lab 000049 - Sử dụng Cloud IDE trong trình duyệt với AWS Cloud9](https://000049.awsstudygroup.com)|
+| 08/05/2026 | Thứ 6 | Lên văn phòng AWS thực tế làm việc, tham gia seminar công nghệ chia sẻ kinh nghiệm vận hành đám mây từ kỹ sư AWS. | AWS Office Visit |
 
 ### Kết quả kỳ vọng
 
-* Thành thạo các thao tác EC2 nâng cao như resize, snapshots, tạo AMI và khôi phục quyền truy cập.
-* Triển khai workload ứng dụng trên EC2 và dùng AWS CLI cho các tác vụ vận hành cơ bản.
-* Khởi tạo và vận hành được Amazon RDS MySQL managed instance kèm thực hành backup, restore.
-* Host static website trên Amazon S3 với access control và versioning phù hợp.
-* Cấu hình giám sát Amazon CloudWatch với alarms, logs và CloudWatch Agent.
+* Chốt thành công đề tài Money Manager và bản phân công công việc chi tiết.
+* Tạo và quản trị được Amazon S3 bucket, hiểu cách cấu hình Block Public Access và Object Policies.
+* Khởi tạo được database RDS MySQL, hiểu cách đưa database vào Private Subnet bảo mật.
+* Thiết lập môi trường code chung bằng AWS Cloud9.
+* Trải nghiệm văn hóa làm việc thực tế tại văn phòng AWS Vietnam.
 
 ### Tham chiếu tuần 3
 
-* [Lab 000004 - Kiến thức tính toán cơ bản với Amazon EC2](https://000004.awsstudygroup.com)
-* [Lab 000005 - Kiến thức cơ sở dữ liệu với Amazon RDS](https://000005.awsstudygroup.com)
-* [Lab 000057 - Lưu trữ website tĩnh với Amazon S3](https://000057.awsstudygroup.com)
-* [Lab 000008 - Giám sát với Amazon CloudWatch](https://000008.awsstudygroup.com)
+* [Lab 000005 - Tạo cơ sở dữ liệu trên Amazon RDS](https://000005.awsstudygroup.com)
+* [Lab 000045 - Tối ưu chi phí với Amazon Lightsail](https://000045.awsstudygroup.com)
+* [Lab 000049 - Sử dụng Cloud IDE trong trình duyệt với AWS Cloud9](https://000049.awsstudygroup.com)
+* [Lab 000057 - Hosting static website với Amazon S3](https://000057.awsstudygroup.com)

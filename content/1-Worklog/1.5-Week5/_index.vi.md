@@ -8,32 +8,36 @@ pre: " <b> 1.5. </b> "
 
 ### Chủ đề tuần
 
-Lambda Cost Optimization + API Gateway + CloudFormation
+Phát triển mobile app Money Manager, sửa lỗi backend & API, tìm hiểu Lambda và API Gateway.
 
 ### Mục tiêu tuần
 
-* Hiểu cách AWS Lambda hỗ trợ tự động hóa vận hành EC2 và tối ưu chi phí.
-* Nắm được cách thiết kế và cung cấp REST API với Amazon API Gateway.
-* Bắt đầu làm quen với AWS CloudFormation để quản lý hạ tầng dưới dạng mã.
+* Tái cấu trúc và phát triển thêm các tính năng ghi nhận tài chính trên mobile client.
+* Fix các lỗi đồng bộ dữ liệu API trên backend.
+* Tìm hiểu cơ chế Serverless (Lambda, API Gateway) và Infrastructure as Code (CloudFormation).
+* Tham gia sự kiện kết nối công nghệ tại văn phòng AWS.
 
 ### Lịch công việc
 
 | Ngày | Thứ | Nội dung công việc | Lab / Dự án |
 |---|---|---|---|
-| 18/05/2026 | Thứ 2 | Tổng quan AWS Lambda và cơ chế tối ưu chi phí cho EC2.Tạo hàm Lambda tự động start/stop EC2 instances và cấu hình saving plans.Thực hành [Lab 000022](https://000022.awsstudygroup.com). | [Lab 000022 - Tối ưu chi phí EC2 với Lambda](https://000022.awsstudygroup.com)|
-| 19/05/2026 | Thứ 3 | Tổng quan Amazon API Gateway và các use case cho REST API.Thiết kế API, tạo resources/methods và tích hợp với backend.Thực hành [Lab 000055](https://000055.awsstudygroup.com). | [Lab 000055 - Tạo và cung cấp API với Amazon API Gateway](https://000055.awsstudygroup.com)|
-| 20/05/2026 | Thứ 4 | Tiếp tục thực hành với API Gateway resources và cơ chế tích hợp.Hoàn thiện luồng request/response cho API.Thực hành [Lab 000055](https://000055.awsstudygroup.com) với các API endpoints. | [Lab 000055 - Tạo và cung cấp API với Amazon API Gateway](https://000055.awsstudygroup.com)|
-| 21/05/2026 | Thứ 5 | Ôn lại mô hình triển khai API Gateway và quy trình publish API.Kiểm tra methods, integrations và các kịch bản test cơ bản.Thực hành [Lab 000055](https://000055.awsstudygroup.com) theo luồng publish API end-to-end. | [Lab 000055 - Tạo và cung cấp API với Amazon API Gateway](https://000055.awsstudygroup.com)|
-| 22/05/2026 | Thứ 6 | Tổng quan AWS CloudFormation và Infrastructure as Code.Viết template YAML/JSON để triển khai hạ tầng tự động.Thực hành [Lab 000037](https://000037.awsstudygroup.com). | [Lab 000037 - AWS CloudFormation](https://000037.awsstudygroup.com)|
+| 18/05/2026 | Thứ 2 | Tối ưu hóa UI/UX mobile, cấu hình lưu trữ offline dữ liệu thu nhập/chi tiêu tạm thời. | Mobile Coding |
+| 19/05/2026 | Thứ 3 | Tìm hiểu tối ưu chi phí EC2 bằng cách dùng Lambda start/stop instance tự động. Thực hành Lab 000022. | [Lab 000022 - Tối ưu chi phí EC2 với Lambda](https://000022.awsstudygroup.com)|
+| 20/05/2026 | Thứ 4 | Nghiên cứu kiến trúc Serverless API với Amazon API Gateway. Thực hành Lab 000055 (Tạo tài nguyên và phương thức). | [Lab 000055 - Tạo và xuất bản API với Amazon API Gateway](https://000055.awsstudygroup.com)|
+| 21/05/2026 | Thứ 5 | Đưa API Gateway vào hoạt động thực tế, tích hợp luồng API Gateway với backend. Thực hành Lab 000055 (Deploy API). | [Lab 000055 - Tạo và xuất bản API với Amazon API Gateway](https://000055.awsstudygroup.com)|
+| 22/06/2026 | Thứ 6 | Tìm hiểu các khái niệm cơ bản về AWS CloudFormation để quản lý cơ sở hạ tầng tự động bằng code. Thực hành Lab 000037. | [Lab 000037 - AWS CloudFormation](https://000037.awsstudygroup.com)|
+| 23/05/2026 | Thứ 7 | Lên văn phòng AWS thực tế, tham gia ngày hội công nghệ cộng đồng AWS Community Day, lắng nghe các bài thuyết trình chuyên sâu. | AWS Community Day |
 
 ### Kết quả kỳ vọng
 
-* Hiểu vai trò của Lambda trong tự động hóa và kiểm soát chi phí EC2.
-* Có thể thiết kế và cung cấp REST API cơ bản bằng API Gateway.
-* Có trải nghiệm ban đầu với việc viết và triển khai CloudFormation template.
+* Sửa đổi giao diện di động ổn định, fix lỗi kết nối CORS ở backend Spring Boot.
+* Viết thành công hàm Lambda Python tương tác với API EC2 để tự động tắt/bật máy chủ tiết kiệm điện.
+* Thiết lập được REST API trên API Gateway có kích hoạt CORS.
+* Viết và deploy thành công template CloudFormation YAML cơ bản.
+* Mở rộng mạng lưới quan hệ công nghệ tại sự kiện AWS Community Day.
 
 ### Tham chiếu tuần 5
 
 * [Lab 000022 - Tối ưu chi phí EC2 với Lambda](https://000022.awsstudygroup.com)
-* [Lab 000055 - Tạo và cung cấp API với Amazon API Gateway](https://000055.awsstudygroup.com)
+* [Lab 000055 - Tạo và xuất bản API với Amazon API Gateway](https://000055.awsstudygroup.com)
 * [Lab 000037 - AWS CloudFormation](https://000037.awsstudygroup.com)

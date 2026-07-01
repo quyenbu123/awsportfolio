@@ -1,5 +1,5 @@
 ---
-title: "Week 11 Worklog - Finishing Money Manager & Submission Prep"
+title: "Week 11 - Finalizing Final Project & Submission Prep"
 date: 2026-04-17
 weight: 11
 chapter: false

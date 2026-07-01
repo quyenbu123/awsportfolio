@@ -1,5 +1,5 @@
 ---
-title: "Nhật ký tuần 7 - Khởi động dự án Money Manager & Phân tích kiến trúc"
+title: "Nhật ký tuần 7 - Khởi động dự án cuối kỳ & Phân tích"
 date: 2026-04-17
 weight: 7
 chapter: false
@@ -8,30 +8,32 @@ pre: " <b> 1.7. </b> "
 
 ### Chủ đề tuần
 
-Khởi động dự án cuối kỳ Money Manager — tìm hiểu source code, setup môi trường và deploy thử lên AWS
+Lên văn phòng làm việc, tối ưu hóa API backend và đồng bộ dữ liệu mobile.
 
 ### Mục tiêu tuần
 
-* Nắm được cấu trúc source code và kiến trúc của dự án Money Manager.
-* Setup môi trường dev local và bắt đầu deploy thử các thành phần lên AWS.
+* Làm việc trực tiếp tại văn phòng AWS ngày 1/6.
+* Thảo luận nhóm để tối ưu hóa hiệu năng ứng dụng, tái cấu trúc UI di động.
+* Nâng cao tốc độ phản hồi API bằng cách tối ưu hóa cơ sở dữ liệu và tầng cache.
 
 ### Lịch công việc
 
 | Ngày | Thứ | Nội dung công việc | Lab / Dự án |
 |---|---|---|---|
-| 01/06/2026 | Thứ 2 | Đọc tài liệu dự án Money Manager, phân tích cấu trúc thư mục và các module chính (backend Spring Boot, frontend React, mobile React Native).Setup môi trường dev: JDK 21, Maven, Node.js, Docker.Chạy thử backend Spring Boot và frontend React local, hiểu luồng build & deploy. | Project cuối kỳ |
-| 02/06/2026 | Thứ 3 | Phân tích kiến trúc phân lớp Controller -> Service -> Repository của backend Spring Boot.Tìm hiểu database schema, entity classes và cấu hình Spring Data JPA/Hibernate.Hiểu cách backend kết nối với MySQL và cấu hình connection pool. | Project cuối kỳ |
-| 03/06/2026 | Thứ 4 | Nghiên cứu các chức năng chính: đăng nhập (JWT + Google OAuth2), quản lý thu chi, ngân sách, hũ tiết kiệm.Tìm hiểu cách backend giao tiếp với database và các API endpoints.Bắt đầu viết ghi chú kỹ thuật và tài liệu kiến trúc. | Project cuối kỳ |
-| 04/06/2026 | Thứ 5 | Deploy thử backend Spring Boot lên AWS EC2.Cấu hình RDS MySQL và kết nối ứng dụng.Kiểm thử các API cơ bản và xử lý lỗi ban đầu. | Project cuối kỳ |
-| 05/06/2026 | Thứ 6 | Tích hợp S3 để lưu trữ file (ảnh hóa đơn, báo cáo).Tìm hiểu cách setup CloudFront cho phân phối static assets.Kiểm thử hệ thống và rà soát performance. | Project cuối kỳ |
+| 01/06/2026 | Thứ 2 | Lên văn phòng AWS thực tế làm việc, báo cáo kế hoạch tối ưu hóa các module ứng dụng với cán bộ hướng dẫn. | On-site AWS |
+| 02/06/2026 | Thứ 3 | Tối ưu hóa các truy vấn database JPA/Hibernate ở backend Spring Boot, tránh lỗi N+1 và giảm thiểu thời gian truy xuất MySQL. | Backend Code |
+| 03/06/2026 | Thứ 4 | Phân tích cơ chế caching dữ liệu tĩnh bằng Redis ElastiCache để lưu các cấu hình hệ thống ít thay đổi. | Tối ưu Caching |
+| 04/06/2026 | Thứ 5 | Chỉnh sửa giao diện di động (React Native), tối ưu các components hiển thị danh sách giao dịch dài. | Mobile UI |
+| 05/06/2026 | Thứ 6 | Khắc phục các lỗi liên quan đến đồng bộ dữ liệu offline, kiểm thử kết nối API ổn định khi có mạng. | Kiểm thử Tích hợp |
 
 ### Kết quả kỳ vọng
 
-* Hiểu rõ kiến trúc Spring Boot và các luồng nghiệp vụ chính của Money Manager.
-* Có môi trường local chạy được và deploy thử thành công lên EC2.
-* Có nền tảng kỹ thuật cho các tuần phát triển tiếp theo.
+* Hoàn thành kế hoạch on-site tuần 7, thống nhất cấu trúc tối ưu với mentor.
+* Tốc độ phản hồi các API chính tăng lên, thời gian query MySQL giảm đi rõ rệt.
+* Thiết lập thành công cơ chế cache bằng Redis cho danh mục hệ thống.
+* Trải nghiệm ứng dụng mượt mà hơn trên các dòng điện thoại di động cấu hình yếu.
 
 ### Tham chiếu tuần 7
 
-* Project cuối kỳ — Money Manager (Spring Boot + React 19 + React Native Expo)
-* Dịch vụ AWS: EC2, RDS MySQL, S3, CloudFront
+* Dự án Money Manager (Spring Boot Backend + React Native Mobile client)
+* Dịch vụ AWS: EC2, RDS MySQL, ElastiCache Redis

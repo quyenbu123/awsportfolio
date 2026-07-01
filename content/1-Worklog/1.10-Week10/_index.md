@@ -1,38 +1,40 @@
 ---
-title: "Week 10 Worklog - Security, Testing & AWS Service Integration"
+title: "Week 10 - Security, CI/CD & Testing for Final Project"
 date: 2026-04-17
 weight: 10
 chapter: false
 pre: " <b> 1.10. </b> "
 ---
 
-### Weekly Focus
+### Week Topic
 
-Locking down security, integrating remaining AWS services and running tests for Money Manager
+Production deployment planning, hosting at botdevgroup.me, and report drafting.
 
-### Objectives
+### Week Objectives
 
-* Set up end-to-end security for the system (IAM, Cloudflare, JWT/OAuth2).
-* Integrate the async services (SQS, Lambda) and run comprehensive tests.
+* Establish the production release strategy and deployment check-lists.
+* Deploy the live application components on AWS, bound to the production domain \`botdevgroup.me\`.
+* Start drafting the final internship report chapters.
 
-### Work Schedule
+### Daily Work Log
 
 | Date | Day | Work Items | Lab / Project |
 |---|---|---|---|
-| 22/06/2026 | Monday | Configure IAM Roles & Policies for EC2 Web-API, Lambda and S3 in the Money Manager project.Review and finalize app-level security: JWT authentication, Google OAuth2 on Spring Boot.Set up Cloudflare WAF, Rate Limit and Turnstile bot protection for the domain. | Final Project |
-| 23/06/2026 | Tuesday | Build the async flow: set up SQS + Dead-Letter Queue for background jobs.Configure EC2 Worker to consume messages from SQS, trigger Lambda for Excel report generation and PDF invoice rendering.Set up S3 buckets for storing output files (reports, invoices). | Final Project |
-| 24/06/2026 | Wednesday | Write unit tests and integration tests for the core business APIs (income/expense, budgets, savings jars).Test the async flow end-to-end: SQS -> EC2 Worker -> Lambda -> S3.Run load tests and optimize performance: connection pool, cache hit rate, query tuning. | Final Project |
-| 25/06/2026 | Thursday | Prepare the Money Manager system architecture documentation.Document all processing flows in detail: main business, AI chat (DynamoDB), async (SQS/Lambda), notifications (SNS).Start building the presentation slides. | Final Project |
-| 26/06/2026 | Friday | Test the PayOS integration (QR payment) and Brevo SMTP (email OTP, reports) through NAT Gateway.Review AWS costs: RDS MySQL, ElastiCache, EC2 ASG, Lambda usage.Wrap up the week and plan for the final stretch. | Final Project |
+| 22/06/2026 | Monday | Team sync mapping out the production release checklist, secrets manager configurations, and API endpoints. | Release Planning |
+| 23/06/2026 | Tuesday | Configure Route 53 DNS records and set up Cloudflare WAF protection proxying to the AWS Application Load Balancer. | Domain & Security |
+| 24/06/2026 | Wednesday | Deploy backend API and Worker containers on EC2 hosts within the private subnets, establishing live database links. | Live Deployment |
+| 25/06/2026 | Thursday | Begin writing the official Internship Report (Company Introduction and Software Requirements chapters). | Report Drafting |
+| 26/06/2026 | Friday | Write the technical infrastructure chapter of the report, describing S3 private routing and cost saving metrics. | Report Drafting |
 
 ### Expected Outcomes
 
-* System security fully configured: IAM, Cloudflare WAF, JWT/OAuth2.
-* Async flow working: SQS -> EC2 Worker -> Lambda -> S3.
-* Solid test coverage for the main APIs and critical processing flows.
+* Release checklist finalized for live mobile and web operations.
+* Live domain \`botdevgroup.me\` pointing to the AWS ALB, secured by Cloudflare.
+* API and background services fully functional in the AWS production environment.
+* Completed drafts for the first two chapters of the Internship Report.
 
 ### Week 10 References
 
-* Final Project — Money Manager (Spring Boot + React 19 + React Native Expo)
-* AWS services: IAM, SQS + DLQ, Lambda, S3, SNS, CloudWatch
-* External services: Cloudflare WAF, PayOS, Brevo SMTP
+* Project Money Manager
+* Domain: botdevgroup.me (Route 53 + Cloudflare proxy)
+* Internship Report document

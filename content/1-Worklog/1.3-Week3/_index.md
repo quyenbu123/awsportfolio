@@ -1,41 +1,42 @@
 ---
-title: "Week 3 Worklog - EC2 Advanced Operations, RDS, S3 & CloudWatch"
+title: "Week 3 - Advanced EC2, RDS, S3 & CloudWatch Operations"
 date: 2026-04-17
 weight: 3
 chapter: false
 pre: " <b> 1.3. </b> "
 ---
 
-### Weekly Focus
+### Week Topic
 
-EC2 advanced operations + RDS + S3 static hosting + CloudWatch monitoring
+Money Manager project ideation, role delegation, and data storage services (RDS, S3).
 
-### Objectives
+### Week Objectives
 
-* Complete EC2 advanced operations: resize, snapshots, AMI, and application deployment.
-* Learn Amazon RDS, Amazon S3 static hosting, and CloudWatch monitoring.
+* Agree on the Money Manager platform topic, divide system modules and member responsibilities.
+* Study integration of RDS MySQL, ElastiCache Redis, S3, and EC2 into the application architecture.
+* Attend technology events and work on-site at the AWS Vietnam office.
 
-### Work Schedule
+### Daily Work Log
 
 | Date | Day | Work Items | Lab / Project |
 |---|---|---|---|
-| 04/05/2026 | Monday | Resize the EC2 instance type.Create and manage EBS snapshots.Create a custom AMI and launch instances from it.Recover access to Linux and Windows instances, then complete [Lab 000004](https://000004.awsstudygroup.com) advanced sections. | [Lab 000004 - Introduction to Amazon EC2](https://000004.awsstudygroup.com)|
-| 05/05/2026 | Tuesday | Install a LAMP server and Node.js on Amazon Linux 2023.Deploy a Node.js application on EC2 for both Linux and Windows environments.Review AWS CLI basics for EC2, S3, and IAM, then create an AWS Budgets alert.Practice deployment-related labs and terminate EC2 instances at the end of the day. | [Lab 000004 - Introduction to Amazon EC2](https://000004.awsstudygroup.com)|
-| 06/05/2026 | Wednesday | Create a VPC and security group for Amazon RDS.Launch a managed RDS MySQL instance and connect an application to it.Practice backup and restore with RDS snapshots.Practice [Lab 000005](https://000005.awsstudygroup.com). | [Lab 000005 - Database Essentials with Amazon Relational Database Service (RDS)](https://000005.awsstudygroup.com)|
-| 07/05/2026 | Thursday | Create an S3 bucket and configure public access for static website hosting.Upload HTML/CSS website assets and configure bucket policy plus versioning.Test pre-signed URLs for controlled access.Practice [Lab 000057](https://000057.awsstudygroup.com) and clean up resources at the end of the week. | [Lab 000057 - Static Website Hosting with Amazon S3](https://000057.awsstudygroup.com)|
-| 08/05/2026 | Friday | Learn CloudWatch metrics and dashboards.Set up a CPU > 80% alarm with SNS email notification.Configure log groups, Log Insights, and the CloudWatch Agent on EC2.Practice [Lab 000008](https://000008.awsstudygroup.com). | [Lab 000008 - Monitoring with Amazon CloudWatch](https://000008.awsstudygroup.com)|
+| 04/05/2026 | Monday | Team meeting discussing the final project idea: Money Manager. Delegate roles (mobile app, API backend, cloud hosting). | Project Kick-off |
+| 05/05/2026 | Tuesday | Research Amazon S3 for storing receipt images and report documents. Practice Lab 000057. | [Lab 000057 - Hosting static website with Amazon S3](https://000057.awsstudygroup.com)|
+| 06/05/2026 | Wednesday | Investigate RDS MySQL databases and cost-effective Lightsail hosting options. Practice Lab 000005 and Lab 000045. | [Lab 000005 - Create a database on Amazon RDS](https://000005.awsstudygroup.com)|
+| 07/05/2026 | Thursday | Configure AWS Cloud9 cloud IDE to establish a shared development workspace. Practice Lab 000049. | [Lab 000049 - Use the Cloud IDE in the browser with AWS Cloud9](https://000049.awsstudygroup.com)|
+| 08/05/2026 | Friday | On-site work day at AWS Vietnam office, attending tech sharing seminars with AWS solution architects. | On-site Day |
 
 ### Expected Outcomes
 
-* Gain confidence with advanced EC2 operations including resizing, snapshots, AMI creation, and access recovery.
-* Deploy application workloads on EC2 and use the AWS CLI for common operational tasks.
-* Launch and operate a managed Amazon RDS MySQL instance with backup and restore practice.
-* Host a static website on Amazon S3 with appropriate access control and versioning.
-* Configure Amazon CloudWatch monitoring with alarms, logs, and the CloudWatch Agent.
+* Finalized Money Manager project scope, architecture draft, and task delegation matrix.
+* Create and configure Amazon S3 buckets, managing public access blocks and resource policies.
+* Deploy an RDS MySQL database in a secure Private Subnet group.
+* Establish team development workspace on AWS Cloud9.
+* Gain real-world exposure to AWS Vietnam's working culture.
 
 ### Week 3 References
 
-* [Lab 000004 - Compute Essentials with Amazon Elastic Compute Cloud (EC2)](https://000004.awsstudygroup.com)
-* [Lab 000005 - Database Essentials with Amazon Relational Database Service (RDS)](https://000005.awsstudygroup.com)
-* [Lab 000057 - Static Website Hosting with Amazon S3](https://000057.awsstudygroup.com)
-* [Lab 000008 - Monitoring with Amazon CloudWatch](https://000008.awsstudygroup.com)
+* [Lab 000005 - Create a database on Amazon RDS](https://000005.awsstudygroup.com)
+* [Lab 000045 - Optimize compute costs with Amazon Lightsail](https://000045.awsstudygroup.com)
+* [Lab 000049 - Use the Cloud IDE in the browser with AWS Cloud9](https://000049.awsstudygroup.com)
+* [Lab 000057 - Hosting static website with Amazon S3](https://000057.awsstudygroup.com)

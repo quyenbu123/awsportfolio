@@ -1,5 +1,5 @@
 ---
-title: "Nhật ký tuần 11 - Hoàn thiện Money Manager & Chuẩn bị nộp"
+title: "Nhật ký tuần 11 - Hoàn thiện dự án cuối kỳ & Chuẩn bị nộp"
 date: 2026-04-17
 weight: 11
 chapter: false

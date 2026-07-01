@@ -1,5 +1,5 @@
 ---
-title: "Nhật ký tuần 9 - Phát triển Money Manager & Deploy lên AWS"
+title: "Nhật ký tuần 9 - Phát triển dự án cuối kỳ & Triển khai AWS"
 date: 2026-04-17
 weight: 9
 chapter: false
@@ -8,30 +8,32 @@ pre: " <b> 1.9. </b> "
 
 ### Chủ đề tuần
 
-Phát triển các chức năng chính của Money Manager và triển khai lên AWS theo kiến trúc đã thiết kế
+Hoàn thành sơ đồ kiến trúc, viết blog công nghệ và hoàn thiện ứng dụng.
 
 ### Mục tiêu tuần
 
-* Phát triển các feature chính của Money Manager (backend + frontend).
-* Deploy lên AWS theo kiến trúc multi-AZ đã thiết kế ở tuần 8.
+* Hoàn thiện chi tiết sơ đồ kiến trúc hạ tầng AWS bằng công cụ trực quan để chuẩn bị đưa vào báo cáo thực tập.
+* Soạn thảo và đăng tải các bài viết chia sẻ kiến thức công nghệ về dịch vụ điện toán đám mây AWS.
+* Tiến hành chạy thử tích hợp tổng thể ứng dụng Money Manager.
 
 ### Lịch công việc
 
 | Ngày | Thứ | Nội dung công việc | Lab / Dự án |
 |---|---|---|---|
-| 15/06/2026 | Thứ 2 | Review lại source code và xác định thứ tự ưu tiên triển khai các module.Đảm bảo môi trường dev ổn định (Spring Boot backend, React frontend).Rà soát lại quy trình build & deploy trước khi bắt đầu code feature mới. | Project cuối kỳ |
-| 16/06/2026 | Thứ 3 | Phát triển các API nghiệp vụ chính: quản lý thu chi, ngân sách, hũ tiết kiệm.Kiểm tra lại entity mappings, quan hệ giữa các bảng và luồng truy cập dữ liệu.Test local và đảm bảo các API hoạt động đúng với MySQL. | Project cuối kỳ |
-| 17/06/2026 | Thứ 4 | Hoàn thiện chức năng authentication: JWT token + Google OAuth2.Phát triển các API cho phân quyền theo gói đăng ký (Free/Premium).Cập nhật tài liệu kỹ thuật và API documentation. | Project cuối kỳ |
-| 18/06/2026 | Thứ 5 | Deploy backend Spring Boot lên EC2 trong Private Subnet.Cấu hình ALB trong Public Subnet để route traffic đến EC2.Setup Auto Scaling Group cho EC2 Web-API để tự động scale theo tải. | Project cuối kỳ |
-| 19/06/2026 | Thứ 6 | Cấu hình RDS MySQL multi-AZ.Cấu hình ElastiCache Redis cho cache và session, kiểm thử kết nối từ EC2. | Project cuối kỳ |
+| 15/06/2026 | Thứ 2 | Sử dụng Draw.io để vẽ và hoàn thiện sơ đồ kiến trúc hạ tầng AWS chi tiết cho dự án. | Báo cáo kiến trúc |
+| 16/06/2026 | Thứ 3 | Nghiên cứu tài liệu và soạn thảo bài viết chia sẻ về AWS Lambda Durable Functions (Khái niệm, kiến trúc). | Viết Blog 1 |
+| 17/06/2026 | Thứ 4 | Nghiên cứu tài liệu và soạn thảo bài viết chia sẻ về OpenSearch Serverless NextGen (Tính năng mới, tối ưu hóa tìm kiếm). | Viết Blog 2 |
+| 18/06/2026 | Thứ 5 | Nghiên cứu tài liệu và soạn thảo bài viết chia sẻ về AWS Lambda Managed Instances (So sánh hiệu năng, chi phí). | Viết Blog 3 |
+| 19/06/2026 | Thứ 6 | Đăng tải 3 bài viết kỹ thuật lên trang web cá nhân, chạy thử liên kết API backend và mobile client lần cuối. | Kiểm thử Tích hợp |
 
 ### Kết quả kỳ vọng
 
-* Có các API nghiệp vụ chính hoạt động (quản lý thu chi, authentication, phân quyền).
-* Backend đã deploy trên EC2 với ALB + Auto Scaling Group.
-* RDS MySQL và ElastiCache Redis đã cấu hình và kết nối thành công.
+* Chốt sơ đồ kiến trúc hạ tầng AWS hoàn chỉnh đưa vào báo cáo thực tập tốt nghiệp.
+* Xuất bản thành công 3 bài viết blog kỹ thuật chất lượng cao về AWS trên website portfolio.
+* Giao tiếp giữa API backend và mobile client hoạt động mượt mà ở tất cả các chức năng.
 
 ### Tham chiếu tuần 9
 
-* Project cuối kỳ — Money Manager (Spring Boot + React 19 + React Native Expo)
-* Dịch vụ AWS: EC2 ASG, ALB, RDS MySQL, ElastiCache Redis
+* Dự án Money Manager
+* Sơ đồ hạ tầng: VPC, ALB, EC2 ASG, RDS, SQS, S3
+* Bài đăng Blog: AWS Lambda Durable Functions, OpenSearch Serverless NextGen, AWS Lambda Managed Instances
