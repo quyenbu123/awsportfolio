@@ -20,11 +20,11 @@ Lambda Cost Optimization + API Gateway + CloudFormation
 
 | Ngày | Thứ | Nội dung công việc | Lab / Dự án |
 |---|---|---|---|
-| 18/05/2026 | Thứ 2 | Tổng quan AWS Lambda và cơ chế tối ưu chi phí cho EC2.Tạo hàm Lambda tự động start/stop EC2 instances và cấu hình saving plans.Thực hành Lab 000022. | Lab 000022 - Tối ưu chi phí EC2 với Lambda |
-| 19/05/2026 | Thứ 3 | Tổng quan Amazon API Gateway và các use case cho REST API.Thiết kế API, tạo resources/methods và tích hợp với backend.Thực hành Lab 000055. | Lab 000055 - Tạo và cung cấp API với Amazon API Gateway |
-| 20/05/2026 | Thứ 4 | Tiếp tục thực hành với API Gateway resources và cơ chế tích hợp.Hoàn thiện luồng request/response cho API.Thực hành Lab 000055 với các API endpoints. | Lab 000055 - Tạo và cung cấp API với Amazon API Gateway |
-| 21/05/2026 | Thứ 5 | Ôn lại mô hình triển khai API Gateway và quy trình publish API.Kiểm tra methods, integrations và các kịch bản test cơ bản.Thực hành Lab 000055 theo luồng publish API end-to-end. | Lab 000055 - Tạo và cung cấp API với Amazon API Gateway |
-| 22/05/2026 | Thứ 6 | Tổng quan AWS CloudFormation và Infrastructure as Code.Viết template YAML/JSON để triển khai hạ tầng tự động.Thực hành Lab 000037. | Lab 000037 - AWS CloudFormation |
+| 18/05/2026 | Thứ 2 | Tổng quan AWS Lambda và cơ chế tối ưu chi phí cho EC2.Tạo hàm Lambda tự động start/stop EC2 instances và cấu hình saving plans.Thực hành [Lab 000022](https://000022.awsstudygroup.com). | [Lab 000022 - Tối ưu chi phí EC2 với Lambda](https://000022.awsstudygroup.com)|
+| 19/05/2026 | Thứ 3 | Tổng quan Amazon API Gateway và các use case cho REST API.Thiết kế API, tạo resources/methods và tích hợp với backend.Thực hành [Lab 000055](https://000055.awsstudygroup.com). | [Lab 000055 - Tạo và cung cấp API với Amazon API Gateway](https://000055.awsstudygroup.com)|
+| 20/05/2026 | Thứ 4 | Tiếp tục thực hành với API Gateway resources và cơ chế tích hợp.Hoàn thiện luồng request/response cho API.Thực hành [Lab 000055](https://000055.awsstudygroup.com) với các API endpoints. | [Lab 000055 - Tạo và cung cấp API với Amazon API Gateway](https://000055.awsstudygroup.com)|
+| 21/05/2026 | Thứ 5 | Ôn lại mô hình triển khai API Gateway và quy trình publish API.Kiểm tra methods, integrations và các kịch bản test cơ bản.Thực hành [Lab 000055](https://000055.awsstudygroup.com) theo luồng publish API end-to-end. | [Lab 000055 - Tạo và cung cấp API với Amazon API Gateway](https://000055.awsstudygroup.com)|
+| 22/05/2026 | Thứ 6 | Tổng quan AWS CloudFormation và Infrastructure as Code.Viết template YAML/JSON để triển khai hạ tầng tự động.Thực hành [Lab 000037](https://000037.awsstudygroup.com). | [Lab 000037 - AWS CloudFormation](https://000037.awsstudygroup.com)|
 
 ### Kết quả kỳ vọng
 
@@ -34,6 +34,6 @@ Lambda Cost Optimization + API Gateway + CloudFormation
 
 ### Tham chiếu tuần 5
 
-* Lab 000022 - Tối ưu chi phí EC2 với Lambda
-* Lab 000055 - Tạo và cung cấp API với Amazon API Gateway
-* Lab 000037 - AWS CloudFormation
+* [Lab 000022 - Tối ưu chi phí EC2 với Lambda](https://000022.awsstudygroup.com)
+* [Lab 000055 - Tạo và cung cấp API với Amazon API Gateway](https://000055.awsstudygroup.com)
+* [Lab 000037 - AWS CloudFormation](https://000037.awsstudygroup.com)

@@ -22,9 +22,9 @@ IAM review + EC2 IAM roles + Amazon EC2 core operations
 
 | Date | Day | Work Items | Lab / Project |
 |---|---|---|---|
-| 27/04/2026 | Monday | Review IAM concepts including users, groups, roles, and policies.Review VPC components such as subnets, route tables, Internet Gateway, and security groups.Set up a $5 Billing Alarm and revisit the AWS credit strategy.Practice the Week 1 labs as a full review. | Lab 000001 - Creating Your First AWS AccountLab 000002 - Access Management with AWS Identity and Access Management (IAM)Lab 000003 - Networking Essentials with Amazon Virtual Private Cloud (VPC) |
-| 28/04/2026 | Tuesday | Learn IAM Roles for EC2 and the Instance Profile model.Access S3 and DynamoDB from EC2 without static access keys.Review IAM cost governance, including region and instance type restrictions.Practice Lab 000048. | Lab 000048 - Instance Profiling with IAM Roles for EC2 |
-| 29/04/2026 | Wednesday | Create a VPC and security groups for both Linux and Windows EC2 instances.Launch Amazon Linux 2023 and Windows Server 2025 instances.Connect through SSH and RDP, then review Key Pair, AMI, and instance type concepts.Practice Lab 000004. | Lab 000004 - Introduction to Amazon EC2 |
+| 27/04/2026 | Monday | Review IAM concepts including users, groups, roles, and policies.Review VPC components such as subnets, route tables, Internet Gateway, and security groups.Set up a $5 Billing Alarm and revisit the AWS credit strategy.Practice the Week 1 labs as a full review. | [Lab 000001 - Creating Your First AWS AccountLab 000002 - Access Management with AWS Identity and Access Management (IAM)Lab 000003 - Networking Essentials with Amazon Virtual Private Cloud (VPC)](https://000001.awsstudygroup.com)|
+| 28/04/2026 | Tuesday | Learn IAM Roles for EC2 and the Instance Profile model.Access S3 and DynamoDB from EC2 without static access keys.Review IAM cost governance, including region and instance type restrictions.Practice [Lab 000048](https://000048.awsstudygroup.com). | [Lab 000048 - Instance Profiling with IAM Roles for EC2](https://000048.awsstudygroup.com)|
+| 29/04/2026 | Wednesday | Create a VPC and security groups for both Linux and Windows EC2 instances.Launch Amazon Linux 2023 and Windows Server 2025 instances.Connect through SSH and RDP, then review Key Pair, AMI, and instance type concepts.Practice [Lab 000004](https://000004.awsstudygroup.com). | [Lab 000004 - Introduction to Amazon EC2](https://000004.awsstudygroup.com)|
 
 ### Expected Outcomes
 
@@ -36,8 +36,8 @@ IAM review + EC2 IAM roles + Amazon EC2 core operations
 
 ### Week 2 References
 
-* Lab 000001 - Creating Your First AWS Account
-* Lab 000002 - Access Management with AWS Identity and Access Management (IAM)
-* Lab 000003 - Networking Essentials with Amazon Virtual Private Cloud (VPC)
-* Lab 000048 - Instance Profiling with IAM Roles for EC2
-* Lab 000004 - Compute Essentials with Amazon Elastic Compute Cloud (EC2)
+* [Lab 000001 - Creating Your First AWS Account](https://000001.awsstudygroup.com)
+* [Lab 000002 - Access Management with AWS Identity and Access Management (IAM)](https://000002.awsstudygroup.com)
+* [Lab 000003 - Networking Essentials with Amazon Virtual Private Cloud (VPC)](https://000003.awsstudygroup.com)
+* [Lab 000048 - Instance Profiling with IAM Roles for EC2](https://000048.awsstudygroup.com)
+* [Lab 000004 - Compute Essentials with Amazon Elastic Compute Cloud (EC2)](https://000004.awsstudygroup.com)

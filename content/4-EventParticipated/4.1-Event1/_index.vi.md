@@ -6,8 +6,6 @@ chapter: false
 pre: " <b> 4.1. </b> "
 ---
 
-# Sự kiện 1 - Prompt Engineering, Sơ đồ tư duy AI & Phương pháp BMAD
-
 | Thông tin | Chi tiết |
 |---|---|
 | Ngày | 09/05/2026 |
@@ -132,7 +130,7 @@ npx bmad-method install
 
 Dưới đây là hình ảnh ghi lại khi tham gia sự kiện:
 
-![Hình ảnh tại Event 1](/images/4-Event/4.1-event1/Screenshot%202026-06-10%20114703.png?width=40pc&classes=shadow)
+![Hình ảnh tại Event 1](/images/4-Event/4.1-event1/event1-photo.jpg?width=40pc&classes=shadow)
 
 ---
 

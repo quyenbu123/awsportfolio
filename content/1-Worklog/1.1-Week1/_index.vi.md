@@ -19,11 +19,11 @@ Thiết lập tài khoản AWS + kiến thức IAM nền tảng + Amazon VPC cơ
 
 | Ngày | Thứ | Nội dung công việc | Lab / Dự án |
 |---|---|---|---|
-| 20/04/2026 | Thứ 2 | Đọc toàn bộ lộ trình học 3 tháng.Cài đặt AWS CLI và cấu hình môi trường làm việc.Tạo tài khoản AWS nếu chưa có và bật MFA cho tài khoản root.Thực hành Lab 000001. | Lab 000001 - Tạo tài khoản AWS đầu tiên |
-| 21/04/2026 | Thứ 3 | Tìm hiểu các khái niệm IAM cốt lõi gồm User, Group và Policy.Tạo Admin Group và Admin User.Nắm nguyên tắc Least Privilege và áp dụng trong thực hành.Thực hành Lab 000002 (Phần 1.1-2.3). | Lab 000002 - Quản lý truy cập với AWS IAM |
-| 22/04/2026 | Thứ 4 | Phân biệt IAM Role và IAM User trong các tình huống sử dụng.Tạo Admin Role và OperatorUser.Thực hành quy trình Switch Role trên AWS console.Tiếp tục Lab 000002 (Phần 3.1-5). | Lab 000002 - Quản lý truy cập với AWS IAM |
-| 23/04/2026 | Thứ 5 | Tìm hiểu nền tảng Amazon VPC gồm public/private subnet, route table, Internet Gateway và NAT Gateway.So sánh Security Group và Network ACL.Thực hành Lab 000003 để tạo VPC từ đầu. | Lab 000003 - Kiến thức mạng cơ bản với Amazon VPC |
-| 24/04/2026 | Thứ 6 | Triển khai EC2 vào VPC và kiểm tra kết nối.Cấu hình NAT Gateway và Reachability Analyzer.Sử dụng Session Manager để truy cập không cần SSH và thiết lập CloudWatch monitoring trên EC2.Tiếp tục Lab 000003 và dọn dẹp tài nguyên. | Lab 000003 - Kiến thức mạng cơ bản với Amazon VPC |
+| 20/04/2026 | Thứ 2 | Đọc toàn bộ lộ trình học 3 tháng.Cài đặt AWS CLI và cấu hình môi trường làm việc.Tạo tài khoản AWS nếu chưa có và bật MFA cho tài khoản root.Thực hành [Lab 000001](https://000001.awsstudygroup.com). | [Lab 000001 - Tạo tài khoản AWS đầu tiên](https://000001.awsstudygroup.com)|
+| 21/04/2026 | Thứ 3 | Tìm hiểu các khái niệm IAM cốt lõi gồm User, Group và Policy.Tạo Admin Group và Admin User.Nắm nguyên tắc Least Privilege và áp dụng trong thực hành.Thực hành [Lab 000002](https://000002.awsstudygroup.com) (Phần 1.1-2.3). | [Lab 000002 - Quản lý truy cập với AWS IAM](https://000002.awsstudygroup.com)|
+| 22/04/2026 | Thứ 4 | Phân biệt IAM Role và IAM User trong các tình huống sử dụng.Tạo Admin Role và OperatorUser.Thực hành quy trình Switch Role trên AWS console.Tiếp tục [Lab 000002](https://000002.awsstudygroup.com) (Phần 3.1-5). | [Lab 000002 - Quản lý truy cập với AWS IAM](https://000002.awsstudygroup.com)|
+| 23/04/2026 | Thứ 5 | Tìm hiểu nền tảng Amazon VPC gồm public/private subnet, route table, Internet Gateway và NAT Gateway.So sánh Security Group và Network ACL.Thực hành [Lab 000003](https://000003.awsstudygroup.com) để tạo VPC từ đầu. | [Lab 000003 - Kiến thức mạng cơ bản với Amazon VPC](https://000003.awsstudygroup.com)|
+| 24/04/2026 | Thứ 6 | Triển khai EC2 vào VPC và kiểm tra kết nối.Cấu hình NAT Gateway và Reachability Analyzer.Sử dụng Session Manager để truy cập không cần SSH và thiết lập CloudWatch monitoring trên EC2.Tiếp tục [Lab 000003](https://000003.awsstudygroup.com) và dọn dẹp tài nguyên. | [Lab 000003 - Kiến thức mạng cơ bản với Amazon VPC](https://000003.awsstudygroup.com)|
 
 ### Kết quả kỳ vọng
 
@@ -35,6 +35,6 @@ Thiết lập tài khoản AWS + kiến thức IAM nền tảng + Amazon VPC cơ
 
 ### Tham chiếu tuần 1
 
-* Lab 000001 - Tạo tài khoản AWS đầu tiên
-* Lab 000002 - Quản lý truy cập với AWS IAM
-* Lab 000003 - Kiến thức mạng cơ bản với Amazon VPC
+* [Lab 000001 - Tạo tài khoản AWS đầu tiên](https://000001.awsstudygroup.com)
+* [Lab 000002 - Quản lý truy cập với AWS IAM](https://000002.awsstudygroup.com)
+* [Lab 000003 - Kiến thức mạng cơ bản với Amazon VPC](https://000003.awsstudygroup.com)
