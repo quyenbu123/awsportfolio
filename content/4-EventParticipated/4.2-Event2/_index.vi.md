@@ -6,8 +6,6 @@ chapter: false
 pre: " <b> 4.2. </b> "
 ---
 
-# Sự kiện 2 - AWS Vietnam Community Day 2026
-
 | Thông tin | Chi tiết |
 |---|---|
 | Ngày | 23/05/2026 |

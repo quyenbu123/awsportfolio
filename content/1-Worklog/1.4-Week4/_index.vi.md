@@ -18,11 +18,11 @@ Auto Scaling + Route 53 + DynamoDB + CloudFront + kiến trúc high availability
 
 | Ngày | Thứ | Nội dung công việc | Lab / Dự án |
 |---|---|---|---|
-| 11/05/2026 | Thứ 2 | Tạo launch template và Auto Scaling Group.Cấu hình target tracking scaling policy.Thiết lập Application Load Balancer với listener rules.Kiểm tra scale-out, scale-in và health check trong Lab 000006. | Lab 000006 - Mở rộng ứng dụng với EC2 Auto Scaling |
-| 12/05/2026 | Thứ 3 | Tìm hiểu Route 53 hosted zone và các record type phổ biến như A, CNAME, Alias.Cấu hình các routing policy cơ bản.Thiết lập mô hình hybrid DNS tích hợp với VPC.Thực hành Lab 000010. | Lab 000010 - Quản lý Hybrid DNS với Amazon Route 53 |
-| 13/05/2026 | Thứ 4 | Tạo bảng DynamoDB với thiết kế partition key và sort key.Thực hiện CRUD qua console và CLI.Cấu hình Global Secondary Index và so sánh on-demand với provisioned capacity.Thực hành Lab 000060 và dọn dẹp tài nguyên. | Lab 000060 - Kiến thức NoSQL cơ bản với Amazon DynamoDB |
-| 14/05/2026 | Thứ 5 | Tìm hiểu CloudFront gồm distribution, origin và cache behaviors.Tích hợp CloudFront với static website trên S3.Cấu hình HTTPS với ACM và thực hiện cache invalidation.Thực hành Lab 000094. | Lab 000094 - Phân phối nội dung với CloudFront |
-| 15/05/2026 | Thứ 6 | Thiết kế kiến trúc Multi-AZ sử dụng ALB, EC2 và RDS.Cấu hình target groups và listener rules.Triển khai RDS Multi-AZ và kiểm tra health check cùng failover behavior.Thực hành Lab 000101. | Lab 000101 - Xây dựng ứng dụng web High Availability |
+| 11/05/2026 | Thứ 2 | Tạo launch template và Auto Scaling Group.Cấu hình target tracking scaling policy.Thiết lập Application Load Balancer với listener rules.Kiểm tra scale-out, scale-in và health check trong [Lab 000006](https://000006.awsstudygroup.com). | [Lab 000006 - Mở rộng ứng dụng với EC2 Auto Scaling](https://000006.awsstudygroup.com)|
+| 12/05/2026 | Thứ 3 | Tìm hiểu Route 53 hosted zone và các record type phổ biến như A, CNAME, Alias.Cấu hình các routing policy cơ bản.Thiết lập mô hình hybrid DNS tích hợp với VPC.Thực hành [Lab 000010](https://000010.awsstudygroup.com). | [Lab 000010 - Quản lý Hybrid DNS với Amazon Route 53](https://000010.awsstudygroup.com)|
+| 13/05/2026 | Thứ 4 | Tạo bảng DynamoDB với thiết kế partition key và sort key.Thực hiện CRUD qua console và CLI.Cấu hình Global Secondary Index và so sánh on-demand với provisioned capacity.Thực hành [Lab 000060](https://000060.awsstudygroup.com) và dọn dẹp tài nguyên. | [Lab 000060 - Kiến thức NoSQL cơ bản với Amazon DynamoDB](https://000060.awsstudygroup.com)|
+| 14/05/2026 | Thứ 5 | Tìm hiểu CloudFront gồm distribution, origin và cache behaviors.Tích hợp CloudFront với static website trên S3.Cấu hình HTTPS với ACM và thực hiện cache invalidation.Thực hành [Lab 000094](https://000094.awsstudygroup.com). | [Lab 000094 - Phân phối nội dung với CloudFront](https://000094.awsstudygroup.com)|
+| 15/05/2026 | Thứ 6 | Thiết kế kiến trúc Multi-AZ sử dụng ALB, EC2 và RDS.Cấu hình target groups và listener rules.Triển khai RDS Multi-AZ và kiểm tra health check cùng failover behavior.Thực hành [Lab 000101](https://000101.awsstudygroup.com). | [Lab 000101 - Xây dựng ứng dụng web High Availability](https://000101.awsstudygroup.com)|
 
 ### Kết quả kỳ vọng
 
@@ -34,8 +34,8 @@ Auto Scaling + Route 53 + DynamoDB + CloudFront + kiến trúc high availability
 
 ### Tham chiếu tuần 4
 
-* Lab 000006 - Mở rộng ứng dụng với EC2 Auto Scaling
-* Lab 000010 - Quản lý Hybrid DNS với Amazon Route 53
-* Lab 000060 - Kiến thức NoSQL cơ bản với Amazon DynamoDB
-* Lab 000094 - Phân phối nội dung với Amazon CloudFront
-* Lab 000101 - Xây dựng ứng dụng web High Availability
+* [Lab 000006 - Mở rộng ứng dụng với EC2 Auto Scaling](https://000006.awsstudygroup.com)
+* [Lab 000010 - Quản lý Hybrid DNS với Amazon Route 53](https://000010.awsstudygroup.com)
+* [Lab 000060 - Kiến thức NoSQL cơ bản với Amazon DynamoDB](https://000060.awsstudygroup.com)
+* [Lab 000094 - Phân phối nội dung với Amazon CloudFront](https://000094.awsstudygroup.com)
+* [Lab 000101 - Xây dựng ứng dụng web High Availability](https://000101.awsstudygroup.com)

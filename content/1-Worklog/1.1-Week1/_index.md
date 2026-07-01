@@ -19,11 +19,11 @@ AWS account setup + IAM basics + Amazon VPC fundamentals
 
 | Date | Day | Work Items | Lab / Project |
 |---|---|---|---|
-| 20/04/2026 | Monday | Read the full 3-month learning roadmap.Install AWS CLI and configure the local environment.Create an AWS account if not already available and enable MFA for the root account.Practice Lab 000001. | Lab 000001 - Creating Your First AWS Account |
-| 21/04/2026 | Tuesday | Learn IAM core concepts including users, groups, and policies.Create the Admin Group and Admin User.Understand the Least Privilege principle and apply it in practice.Practice Lab 000002 (Sections 1.1-2.3). | Lab 000002 - Access Management with AWS IAM |
-| 22/04/2026 | Wednesday | Review IAM Role versus IAM User use cases.Create the Admin Role and OperatorUser.Practice the Switch Role workflow on the AWS console.Continue Lab 000002 (Sections 3.1-5). | Lab 000002 - Access Management with AWS IAM |
-| 23/04/2026 | Thursday | Learn Amazon VPC fundamentals including public/private subnets, route tables, Internet Gateway, and NAT Gateway.Compare Security Groups and Network ACLs.Practice Lab 000003 to build a VPC from scratch. | Lab 000003 - Networking Essentials with Amazon Virtual Private Cloud (VPC) |
-| 24/04/2026 | Friday | Deploy EC2 instances into the VPC and verify connectivity.Configure NAT Gateway and Reachability Analyzer.Use Session Manager for SSH-less access and set up CloudWatch monitoring on EC2.Continue Lab 000003 and clean up resources. | Lab 000003 - Networking Essentials with Amazon Virtual Private Cloud (VPC) |
+| 20/04/2026 | Monday | Read the full 3-month learning roadmap.Install AWS CLI and configure the local environment.Create an AWS account if not already available and enable MFA for the root account.Practice [Lab 000001](https://000001.awsstudygroup.com). | [Lab 000001 - Creating Your First AWS Account](https://000001.awsstudygroup.com)|
+| 21/04/2026 | Tuesday | Learn IAM core concepts including users, groups, and policies.Create the Admin Group and Admin User.Understand the Least Privilege principle and apply it in practice.Practice [Lab 000002](https://000002.awsstudygroup.com) (Sections 1.1-2.3). | [Lab 000002 - Access Management with AWS IAM](https://000002.awsstudygroup.com)|
+| 22/04/2026 | Wednesday | Review IAM Role versus IAM User use cases.Create the Admin Role and OperatorUser.Practice the Switch Role workflow on the AWS console.Continue [Lab 000002](https://000002.awsstudygroup.com) (Sections 3.1-5). | [Lab 000002 - Access Management with AWS IAM](https://000002.awsstudygroup.com)|
+| 23/04/2026 | Thursday | Learn Amazon VPC fundamentals including public/private subnets, route tables, Internet Gateway, and NAT Gateway.Compare Security Groups and Network ACLs.Practice [Lab 000003](https://000003.awsstudygroup.com) to build a VPC from scratch. | [Lab 000003 - Networking Essentials with Amazon Virtual Private Cloud (VPC)](https://000003.awsstudygroup.com)|
+| 24/04/2026 | Friday | Deploy EC2 instances into the VPC and verify connectivity.Configure NAT Gateway and Reachability Analyzer.Use Session Manager for SSH-less access and set up CloudWatch monitoring on EC2.Continue [Lab 000003](https://000003.awsstudygroup.com) and clean up resources. | [Lab 000003 - Networking Essentials with Amazon Virtual Private Cloud (VPC)](https://000003.awsstudygroup.com)|
 
 ### Expected Outcomes
 
@@ -35,6 +35,6 @@ AWS account setup + IAM basics + Amazon VPC fundamentals
 
 ### Week 1 References
 
-* Lab 000001 - Creating Your First AWS Account
-* Lab 000002 - Access Management with AWS Identity and Access Management (IAM)
-* Lab 000003 - Networking Essentials with Amazon Virtual Private Cloud (VPC)
+* [Lab 000001 - Creating Your First AWS Account](https://000001.awsstudygroup.com)
+* [Lab 000002 - Access Management with AWS Identity and Access Management (IAM)](https://000002.awsstudygroup.com)
+* [Lab 000003 - Networking Essentials with Amazon Virtual Private Cloud (VPC)](https://000003.awsstudygroup.com)

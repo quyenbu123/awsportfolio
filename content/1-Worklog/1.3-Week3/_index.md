@@ -19,11 +19,11 @@ EC2 advanced operations + RDS + S3 static hosting + CloudWatch monitoring
 
 | Date | Day | Work Items | Lab / Project |
 |---|---|---|---|
-| 04/05/2026 | Monday | Resize the EC2 instance type.Create and manage EBS snapshots.Create a custom AMI and launch instances from it.Recover access to Linux and Windows instances, then complete Lab 000004 advanced sections. | Lab 000004 - Introduction to Amazon EC2 |
-| 05/05/2026 | Tuesday | Install a LAMP server and Node.js on Amazon Linux 2023.Deploy a Node.js application on EC2 for both Linux and Windows environments.Review AWS CLI basics for EC2, S3, and IAM, then create an AWS Budgets alert.Practice deployment-related labs and terminate EC2 instances at the end of the day. | Lab 000004 - Introduction to Amazon EC2 |
-| 06/05/2026 | Wednesday | Create a VPC and security group for Amazon RDS.Launch a managed RDS MySQL instance and connect an application to it.Practice backup and restore with RDS snapshots.Practice Lab 000005. | Lab 000005 - Database Essentials with Amazon Relational Database Service (RDS) |
-| 07/05/2026 | Thursday | Create an S3 bucket and configure public access for static website hosting.Upload HTML/CSS website assets and configure bucket policy plus versioning.Test pre-signed URLs for controlled access.Practice Lab 000057 and clean up resources at the end of the week. | Lab 000057 - Static Website Hosting with Amazon S3 |
-| 08/05/2026 | Friday | Learn CloudWatch metrics and dashboards.Set up a CPU > 80% alarm with SNS email notification.Configure log groups, Log Insights, and the CloudWatch Agent on EC2.Practice Lab 000008. | Lab 000008 - Monitoring with Amazon CloudWatch |
+| 04/05/2026 | Monday | Resize the EC2 instance type.Create and manage EBS snapshots.Create a custom AMI and launch instances from it.Recover access to Linux and Windows instances, then complete [Lab 000004](https://000004.awsstudygroup.com) advanced sections. | [Lab 000004 - Introduction to Amazon EC2](https://000004.awsstudygroup.com)|
+| 05/05/2026 | Tuesday | Install a LAMP server and Node.js on Amazon Linux 2023.Deploy a Node.js application on EC2 for both Linux and Windows environments.Review AWS CLI basics for EC2, S3, and IAM, then create an AWS Budgets alert.Practice deployment-related labs and terminate EC2 instances at the end of the day. | [Lab 000004 - Introduction to Amazon EC2](https://000004.awsstudygroup.com)|
+| 06/05/2026 | Wednesday | Create a VPC and security group for Amazon RDS.Launch a managed RDS MySQL instance and connect an application to it.Practice backup and restore with RDS snapshots.Practice [Lab 000005](https://000005.awsstudygroup.com). | [Lab 000005 - Database Essentials with Amazon Relational Database Service (RDS)](https://000005.awsstudygroup.com)|
+| 07/05/2026 | Thursday | Create an S3 bucket and configure public access for static website hosting.Upload HTML/CSS website assets and configure bucket policy plus versioning.Test pre-signed URLs for controlled access.Practice [Lab 000057](https://000057.awsstudygroup.com) and clean up resources at the end of the week. | [Lab 000057 - Static Website Hosting with Amazon S3](https://000057.awsstudygroup.com)|
+| 08/05/2026 | Friday | Learn CloudWatch metrics and dashboards.Set up a CPU > 80% alarm with SNS email notification.Configure log groups, Log Insights, and the CloudWatch Agent on EC2.Practice [Lab 000008](https://000008.awsstudygroup.com). | [Lab 000008 - Monitoring with Amazon CloudWatch](https://000008.awsstudygroup.com)|
 
 ### Expected Outcomes
 
@@ -35,7 +35,7 @@ EC2 advanced operations + RDS + S3 static hosting + CloudWatch monitoring
 
 ### Week 3 References
 
-* Lab 000004 - Compute Essentials with Amazon Elastic Compute Cloud (EC2)
-* Lab 000005 - Database Essentials with Amazon Relational Database Service (RDS)
-* Lab 000057 - Static Website Hosting with Amazon S3
-* Lab 000008 - Monitoring with Amazon CloudWatch
+* [Lab 000004 - Compute Essentials with Amazon Elastic Compute Cloud (EC2)](https://000004.awsstudygroup.com)
+* [Lab 000005 - Database Essentials with Amazon Relational Database Service (RDS)](https://000005.awsstudygroup.com)
+* [Lab 000057 - Static Website Hosting with Amazon S3](https://000057.awsstudygroup.com)
+* [Lab 000008 - Monitoring with Amazon CloudWatch](https://000008.awsstudygroup.com)

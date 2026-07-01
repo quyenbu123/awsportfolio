@@ -20,11 +20,11 @@ Lambda Cost Optimization + API Gateway + CloudFormation
 
 | Date | Day | Work Items | Lab / Project |
 |---|---|---|---|
-| 18/05/2026 | Monday | Review AWS Lambda fundamentals and EC2 cost optimization strategies.Create a Lambda function to automatically start and stop EC2 instances and review saving plan setup.Practice Lab 000022. | Lab 000022 - Optimize EC2 Cost with Lambda |
-| 19/05/2026 | Tuesday | Review Amazon API Gateway fundamentals and common REST API use cases.Design API resources and methods and connect them to the backend.Practice Lab 000055. | Lab 000055 - Create and Publish APIs with Amazon API Gateway |
-| 20/05/2026 | Wednesday | Continue hands-on work with API Gateway resources and integrations.Refine request and response handling for the API workflow.Practice Lab 000055 with API endpoints. | Lab 000055 - Create and Publish APIs with Amazon API Gateway |
-| 21/05/2026 | Thursday | Revisit API Gateway deployment patterns and the publish flow.Validate methods, integrations, and basic API testing scenarios.Practice the end-to-end publishing flow in Lab 000055. | Lab 000055 - Create and Publish APIs with Amazon API Gateway |
-| 22/05/2026 | Friday | Learn AWS CloudFormation concepts and Infrastructure as Code principles.Write YAML/JSON templates to provision infrastructure automatically.Practice Lab 000037. | Lab 000037 - AWS CloudFormation |
+| 18/05/2026 | Monday | Review AWS Lambda fundamentals and EC2 cost optimization strategies.Create a Lambda function to automatically start and stop EC2 instances and review saving plan setup.Practice [Lab 000022](https://000022.awsstudygroup.com). | [Lab 000022 - Optimize EC2 Cost with Lambda](https://000022.awsstudygroup.com)|
+| 19/05/2026 | Tuesday | Review Amazon API Gateway fundamentals and common REST API use cases.Design API resources and methods and connect them to the backend.Practice [Lab 000055](https://000055.awsstudygroup.com). | [Lab 000055 - Create and Publish APIs with Amazon API Gateway](https://000055.awsstudygroup.com)|
+| 20/05/2026 | Wednesday | Continue hands-on work with API Gateway resources and integrations.Refine request and response handling for the API workflow.Practice [Lab 000055](https://000055.awsstudygroup.com) with API endpoints. | [Lab 000055 - Create and Publish APIs with Amazon API Gateway](https://000055.awsstudygroup.com)|
+| 21/05/2026 | Thursday | Revisit API Gateway deployment patterns and the publish flow.Validate methods, integrations, and basic API testing scenarios.Practice the end-to-end publishing flow in [Lab 000055](https://000055.awsstudygroup.com). | [Lab 000055 - Create and Publish APIs with Amazon API Gateway](https://000055.awsstudygroup.com)|
+| 22/05/2026 | Friday | Learn AWS CloudFormation concepts and Infrastructure as Code principles.Write YAML/JSON templates to provision infrastructure automatically.Practice [Lab 000037](https://000037.awsstudygroup.com). | [Lab 000037 - AWS CloudFormation](https://000037.awsstudygroup.com)|
 
 ### Expected Outcomes
 
@@ -34,6 +34,6 @@ Lambda Cost Optimization + API Gateway + CloudFormation
 
 ### Week 5 References
 
-* Lab 000022 - Optimize EC2 Cost with Lambda
-* Lab 000055 - Create and Publish APIs with Amazon API Gateway
-* Lab 000037 - AWS CloudFormation
+* [Lab 000022 - Optimize EC2 Cost with Lambda](https://000022.awsstudygroup.com)
+* [Lab 000055 - Create and Publish APIs with Amazon API Gateway](https://000055.awsstudygroup.com)
+* [Lab 000037 - AWS CloudFormation](https://000037.awsstudygroup.com)
